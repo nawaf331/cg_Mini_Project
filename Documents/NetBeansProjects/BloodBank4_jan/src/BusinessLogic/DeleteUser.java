@@ -19,7 +19,11 @@ public class DeleteUser {
     
     private String deleteDonorQuery;
     private String deleteFromLogin;
+    private String deleteMgrQuery;
 
+    public String getDeleteMgrQuery() {
+        return deleteMgrQuery;
+    }
     public String getDeleteFromLogin() {
         return deleteFromLogin;
     }
@@ -31,11 +35,27 @@ public class DeleteUser {
     int result;
 
     public void deletemgr() {
-        JOptionPane.showConfirmDialog(null, "complete BusinessLogic.deleteManager.java deletemgr()");
+        deleteMgrQuery="DELETE FROM bloodbankmanager WHERE emp_id = ?";
+        connection=core.DBManager.con;
+        try {
+            stmt=connection.prepareStatement(getDeleteMgrQuery());
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            stmt.setString(1, Login.DONOR_ID);
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            result=stmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void deleteDonor() {
-        System.out.println("UserRegistration.DONOR_ID"+Login.DONOR_ID);
+        System.out.println("Login.DONOR_ID"+Login.DONOR_ID);
         connection=core.DBManager.con;
         deleteDonorQuery="DELETE FROM donor WHERE donor_id = ?";
         try {

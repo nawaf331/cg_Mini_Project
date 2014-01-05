@@ -13,6 +13,16 @@ import javax.swing.JOptionPane;
  */
 public class DonorsMainForm extends javax.swing.JFrame {
     
+    private String lastDonation;
+
+    private String getLastDonation() {
+        return lastDonation;
+    }
+
+    private void setLastDonation(String lastDonation) {
+        this.lastDonation = lastDonation;
+    }
+    
 
     /**
      * Creates new form DonorsMainForm
@@ -20,6 +30,16 @@ public class DonorsMainForm extends javax.swing.JFrame {
     public DonorsMainForm() {
         initComponents();
         lWarning.setText(null);
+        BusinessLogic.fillDonorMainPage fillPage=new BusinessLogic.fillDonorMainPage();
+        fillPage.fnGetLastDonationDate();
+        setLastDonation(fillPage.getsLastDonationDate());
+        lLastBloodDonation.setText("Your Last Blood donation was on : " + getLastDonation());
+        
+        fillPage.fnGetNameOfTheUser();
+        lWelcome.setText("Welcome, "+fillPage.getsNameOftheUser());
+        
+        fillPage.fnGetMgrName();
+        
     }
 
     /**
@@ -32,17 +52,18 @@ public class DonorsMainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         lWelcome = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        OuterPanel = new javax.swing.JPanel();
+        buttonpanel = new javax.swing.JPanel();
         bDonateBlood = new javax.swing.JButton();
         bUpdateProfile = new javax.swing.JButton();
         bDeleteAccount = new javax.swing.JButton();
         bDonateCash = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        lWarning = new javax.swing.JLabel();
+        innerPanel = new javax.swing.JPanel();
         lRegisteredWith = new javax.swing.JLabel();
         bRemindMe = new javax.swing.JButton();
         lNextBloodDonation = new javax.swing.JLabel();
         lLastBloodDonation = new javax.swing.JLabel();
-        lWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Registered User");
@@ -55,6 +76,11 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
         bUpdateProfile.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bUpdateProfile.setText("Update My profile");
+        bUpdateProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUpdateProfileActionPerformed(evt);
+            }
+        });
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDeleteAccount.setText("Delete My Account");
@@ -74,39 +100,43 @@ public class DonorsMainForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        javax.swing.GroupLayout buttonpanelLayout = new javax.swing.GroupLayout(buttonpanel);
+        buttonpanel.setLayout(buttonpanelLayout);
+        buttonpanelLayout.setHorizontalGroup(
+            buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonpanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bUpdateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bDeleteAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
+        buttonpanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
 
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        buttonpanelLayout.setVerticalGroup(
+            buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bDonateCash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bUpdateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bDeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
+        buttonpanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
+
+        lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        lWarning.setForeground(java.awt.Color.blue);
+        lWarning.setText("lwarning");
 
         lRegisteredWith.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lRegisteredWith.setText("You are registered with :");
@@ -128,13 +158,13 @@ public class DonorsMainForm extends javax.swing.JFrame {
         lLastBloodDonation.setForeground(new java.awt.Color(0, 0, 255));
         lLastBloodDonation.setText("Your Last Blood Donation was on :");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout innerPanelLayout = new javax.swing.GroupLayout(innerPanel);
+        innerPanel.setLayout(innerPanelLayout);
+        innerPanelLayout.setHorizontalGroup(
+            innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(innerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lRegisteredWith)
                     .addComponent(lLastBloodDonation)
                     .addComponent(lNextBloodDonation))
@@ -142,13 +172,13 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addComponent(bRemindMe)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        innerPanelLayout.setVerticalGroup(
+            innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(innerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lLastBloodDonation)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNextBloodDonation)
                     .addComponent(bRemindMe))
                 .addGap(18, 18, 18)
@@ -156,41 +186,54 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lWarning.setForeground(java.awt.Color.blue);
-        lWarning.setText("lwarning");
+        javax.swing.GroupLayout OuterPanelLayout = new javax.swing.GroupLayout(OuterPanel);
+        OuterPanel.setLayout(OuterPanelLayout);
+        OuterPanelLayout.setHorizontalGroup(
+            OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OuterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(OuterPanelLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(lWarning))))
+                .addContainerGap())
+        );
+        OuterPanelLayout.setVerticalGroup(
+            OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OuterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
+                .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lWarning)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(58, 58, 58)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(189, 189, 189)
-                            .addComponent(lWelcome))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(71, 71, 71)
-                            .addComponent(lWarning))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(183, 183, 183)
+                .addComponent(lWelcome)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(45, 45, 45)
                 .addComponent(lWelcome)
-                .addGap(47, 47, 47)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(54, 54, 54)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lWarning)
-                .addGap(42, 42, 42))
+                .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -214,6 +257,10 @@ public class DonorsMainForm extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_bDeleteAccountActionPerformed
+
+    private void bUpdateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bUpdateProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,21 +296,22 @@ public class DonorsMainForm extends javax.swing.JFrame {
         /*
          * Create and display the form
          */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 new DonorsMainForm().setVisible(true);
             }
-        });
+        });*/
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel OuterPanel;
     private javax.swing.JButton bDeleteAccount;
     private javax.swing.JButton bDonateBlood;
     private javax.swing.JButton bDonateCash;
     private javax.swing.JButton bRemindMe;
     private javax.swing.JButton bUpdateProfile;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel buttonpanel;
+    private javax.swing.JPanel innerPanel;
     private javax.swing.JLabel lLastBloodDonation;
     private javax.swing.JLabel lNextBloodDonation;
     private javax.swing.JLabel lRegisteredWith;

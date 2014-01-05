@@ -262,7 +262,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCreateNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCreateNewUserActionPerformed
-        Donorform donorRegister=new Donorform();
+        DonorRegistrationForm donorRegister=new DonorRegistrationForm();
         donorRegister.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_bCreateNewUserActionPerformed

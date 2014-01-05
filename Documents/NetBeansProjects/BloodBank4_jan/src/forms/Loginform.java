@@ -169,11 +169,11 @@ public class Loginform extends javax.swing.JFrame {
                 .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lCreateNewAccount)
                 .addGap(18, 18, 18)
                 .addComponent(lWarning)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,7 +248,7 @@ public class Loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_bSubmitActionPerformed
 
     private void lCreateNewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCreateNewAccountMouseClicked
-        Donorform createnew = new Donorform();
+        DonorRegistrationForm createnew = new DonorRegistrationForm();
         createnew.setVisible(true);
         //this.dispose();
     }//GEN-LAST:event_lCreateNewAccountMouseClicked

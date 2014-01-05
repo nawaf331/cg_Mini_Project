@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class Donorform extends javax.swing.JFrame {
+public class DonorRegistrationForm extends javax.swing.JFrame {
 
     private String submittedUsername;
 
@@ -57,7 +57,7 @@ public class Donorform extends javax.swing.JFrame {
     /**
      * Creates new form Donor form
      */
-    public Donorform() {
+    public DonorRegistrationForm() {
         initComponents();
         lWarning.setText(null);
         sAge.setValue(20);
