@@ -24,8 +24,27 @@ public class Login {
     Statement stmt;
     ResultSet rs;
     String sql;
+    
+    private String EnteredName;
 
-    public boolean isValidLogin(String user1, String pass1) {
+    public String getEnteredName() {
+        return EnteredName;
+    }
+
+    public void setEnteredName(String EnteredName) {
+        this.EnteredName = EnteredName;
+    }
+
+    public String getEnteredPassword() {
+        return EnteredPassword;
+    }
+
+    public void setEnteredPassword(String EnteredPassword) {
+        this.EnteredPassword = EnteredPassword;
+    }
+    private String EnteredPassword;
+
+    public boolean isValidLogin() {
         sql="SELECT username, password from loginTable";
         //core.DBManager connector=new core.DBManager();\
         connection=core.DBManager.con;
@@ -44,7 +63,7 @@ public class Login {
                 String user=rs.getString("username");
                 String pass=rs.getString("password");
                 
-                if(user1.equals(user) && pass1.equals(pass)){
+                if(getEnteredName().equals(user) && getEnteredPassword().equals(pass)){
                     return true;
                 }
             }

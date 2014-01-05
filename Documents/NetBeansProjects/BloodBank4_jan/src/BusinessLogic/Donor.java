@@ -18,8 +18,7 @@ public class Donor {
     int Age;
     String Gender;
     String Phone_no;
-    String City;
-    String State;
+    String EnteredAddress;
     static Connection connection;
     PreparedStatement stmt;
     String insertDonorSql;
@@ -42,12 +41,12 @@ public class Donor {
         this.Age = Age;
     }
 
-    public String getCity() {
-        return City;
+    public String getAddress() {
+        return EnteredAddress;
     }
 
-    public void setCity(String City) {
-        this.City = City;
+    public void setAddress(String City) {
+        this.EnteredAddress = City;
     }
 
     public String getGender() {
@@ -74,13 +73,6 @@ public class Donor {
         this.Phone_no = Phone_no;
     }
 
-    public String getState() {
-        return State;
-    }
-
-    public void setState(String State) {
-        this.State = State;
-    }
     
   
 
@@ -89,16 +81,17 @@ public class Donor {
         setInsertDonorSql("INSERT INTO Donor VALUES(?,?,?,?,?,?)");
         try {
             stmt=connection.prepareStatement(getInsertDonorSql());
-            stmt.setString(1, getName());
-            stmt.setString(2, getGender());
-            stmt.setInt(3,getAge());
-            stmt.setString(4, getPhone_no());
-            stmt.setString(5, getState());
+            stmt.setString(1, UserRegistration.DONOR_ID); //Static Object
+            stmt.setString(2, getName());
+            stmt.setString(3, getGender());
+            stmt.setInt(4,getAge());
+            stmt.setString(5, getPhone_no());
+            stmt.setString(6, getAddress());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         try {
-            result=stmt.executeUpdate(insertDonorSql);
+            result=stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

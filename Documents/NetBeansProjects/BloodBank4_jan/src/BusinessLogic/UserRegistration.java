@@ -20,9 +20,9 @@ public class UserRegistration {
     /**
      * @param args the command line arguments
      */
+    static String DONOR_ID;
     String username;
     String Password;
-    String confirmpassword;
     PreparedStatement stmt; 
     static Connection connection;
     String insertUserInfoSql;
@@ -31,15 +31,14 @@ public class UserRegistration {
 
     public void setUsername(String username) {
         this.username = username;
+        DONOR_ID=this.username;
     }
 
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
-    public void setConfirmpassword(String confirmpassword) {
-        this.confirmpassword = confirmpassword;
-    }
+    
 
     public void setStmt(PreparedStatement stmt) {
         this.stmt = stmt;
@@ -65,9 +64,7 @@ public class UserRegistration {
         return Password;
     }
 
-    public String getConfirmpassword() {
-        return confirmpassword;
-    }
+  
 
     public Statement getStmt() {
         return stmt;
@@ -96,7 +93,7 @@ public class UserRegistration {
             stmt=connection.prepareStatement(getInsertUserInfoSql());
             stmt.setString(1,getUsername());
             stmt.setString(2,getPassword());
-            stmt.setString(3,"D");
+            stmt.setString(3,"D");      //Assumed that we can Insert only Donor Through Java application
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
@@ -110,9 +107,7 @@ public class UserRegistration {
         return result == 1;
     }
 
-    private String getUsertype() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     

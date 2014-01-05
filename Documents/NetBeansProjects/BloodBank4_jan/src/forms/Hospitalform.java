@@ -51,33 +51,44 @@ public class Hospitalform extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel1.setText("Hospital Record");
 
-        lBloodtype.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        tTime.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+
+        lBloodtype.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lBloodtype.setText("Blood Type");
 
-        lTime.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        tDate.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+
+        tPhone_no.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+
+        tHospital.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+
+        lTime.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lTime.setText("Time");
 
-        lQuantity.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lQuantity.setText("Quantity");
 
+        cQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         cQuantity.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lHospital.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lHospital.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lHospital.setText("Hospital Name");
 
-        lPhone_no.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lPhone_no.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lPhone_no.setText("Phone_no");
 
-        lDate.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lDate.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lDate.setText("Date");
 
-        lAddress.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lAddress.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lAddress.setText("Address");
 
         tAddress.setColumns(20);
+        tAddress.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         tAddress.setRows(5);
         jScrollPane1.setViewportView(tAddress);
 
+        cBloodtype.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         cBloodtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A+", "AB-", "A-", "B+", "B-", "O+", "O-", "AB+", " ", " " }));
         cBloodtype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,16 +167,16 @@ public class Hospitalform extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
+                        .addGap(151, 151, 151)
                         .addComponent(jLabel1)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
