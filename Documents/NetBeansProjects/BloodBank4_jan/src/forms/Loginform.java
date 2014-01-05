@@ -5,6 +5,8 @@
  */
 package forms;
 
+import BusinessLogic.Login;
+
 /**
  *
  * @author Administrator
@@ -18,6 +20,8 @@ public class Loginform extends javax.swing.JFrame {
         initComponents();
         lWarning.setText(null);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -221,6 +225,7 @@ public class Loginform extends javax.swing.JFrame {
            // validity=true;
             if (validity) {
                 lWarning.setText("You are successfully Logged in");
+                Login.setDONOR_ID(username);
                 usertype = login.getUserType();
                /// usertype=username;
                 if (usertype.equals("D")) {

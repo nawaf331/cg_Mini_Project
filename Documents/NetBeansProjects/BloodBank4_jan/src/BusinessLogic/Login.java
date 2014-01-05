@@ -17,8 +17,12 @@ import java.sql.Statement;
  */
 public class Login {
     
-    
+    static String DONOR_ID;
     static Connection connection;
+
+    public static void setDONOR_ID(String username) {
+        DONOR_ID=username;
+    }
     Statement stmt;
     ResultSet rs;
     String sql;

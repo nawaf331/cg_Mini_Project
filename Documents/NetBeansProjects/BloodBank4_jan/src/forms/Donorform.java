@@ -306,7 +306,7 @@ public class Donorform extends javax.swing.JFrame {
         lHeading.setText("Blood Donor Registration Form");
 
         lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lWarning.setForeground(new java.awt.Color(51, 51, 255));
+        lWarning.setForeground(java.awt.Color.blue);
         lWarning.setText("Warning");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -415,13 +415,14 @@ public class Donorform extends javax.swing.JFrame {
             returnFromDonorRegistrationBL = donor.insertDonor();
             if (returnFromDonorRegistrationBL) {
                 lWarning.setText("Insertion Successfull");
+                JOptionPane.showConfirmDialog(this, "Account Created Successfully, Login to connect", "Success", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
             } else {
                 lWarning.setText("Username exists. Please provide a different Username");
             }
         }
-        System.out.println("username=" + getSubmittedUsername());
-        System.out.println("password" + getSubmittedPassword());
-        System.out.println("re password" + getSubmittedConfirmpassword());
+        System.out.println("username= " + getSubmittedUsername());
+        System.out.println("password " + getSubmittedPassword());
+        System.out.println("re password " + getSubmittedConfirmpassword());
         System.out.println("Name=" + getSubmittedFullName());
         System.out.println("Age=" + getSubmittedAge());
         System.out.println("Gender=" + getSubmittedGender());

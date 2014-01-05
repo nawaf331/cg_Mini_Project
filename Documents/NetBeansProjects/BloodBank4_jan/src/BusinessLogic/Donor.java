@@ -50,11 +50,20 @@ public class Donor {
     }
 
     public String getGender() {
-        return Gender;
+        if(Gender.equals("Male")){
+            return "M";
+        }
+        else{
+            return "f";
+        }
     }
 
     public void setGender(String Gender) {
-        this.Gender = Gender;
+        if(Gender.equals("Male")) {
+            this.Gender = "M";
+        } else {
+            this.Gender = "F";
+        }
     }
 
     public String getName() {
@@ -78,15 +87,17 @@ public class Donor {
 
     public boolean insertDonor() {
         result=0;
-        setInsertDonorSql("INSERT INTO Donor VALUES(?,?,?,?,?,?)");
+        setInsertDonorSql("INSERT INTO donor VALUES(?,?,?,?,?,?)");
         try {
+            connection=core.DBManager.con;
             stmt=connection.prepareStatement(getInsertDonorSql());
-            stmt.setString(1, UserRegistration.DONOR_ID); //Static Object
+            System.out.println("UserRegistration.DONOR_ID " + Login.DONOR_ID);
+            stmt.setString(1, Login.DONOR_ID); //Static Object
             stmt.setString(2, getName());
             stmt.setString(3, getGender());
             stmt.setInt(4,getAge());
-            stmt.setString(5, getPhone_no());
-            stmt.setString(6, getAddress());
+            stmt.setString(5, getAddress());
+            stmt.setString(6, getPhone_no());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
