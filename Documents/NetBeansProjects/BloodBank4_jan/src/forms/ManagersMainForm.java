@@ -54,6 +54,11 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
         bGetReceptorInfo.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bGetReceptorInfo.setText("Get Info");
+        bGetReceptorInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGetReceptorInfoActionPerformed(evt);
+            }
+        });
 
         lNoOfReceptors.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lNoOfReceptors.setText("You have m receptors");
@@ -283,6 +288,10 @@ public class ManagersMainForm extends javax.swing.JFrame {
         recordsForm donorRecords=new recordsForm();
         donorRecords.setVisible(true);
     }//GEN-LAST:event_bGetDonorInfoActionPerformed
+
+    private void bGetReceptorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetReceptorInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bGetReceptorInfoActionPerformed
 
     /**
      * @param args the command line arguments

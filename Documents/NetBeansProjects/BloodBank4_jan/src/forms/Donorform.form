@@ -34,21 +34,22 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                      <Component id="lHeading" min="-2" pref="303" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pFieldPanel" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Component id="lWarning" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                      <Component id="lHeading" min="-2" pref="303" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,68 +73,68 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="bSubmit" linkSize="9" min="-2" pref="100" max="-2" attributes="0"/>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
-                  <Component id="bReset" linkSize="9" min="-2" pref="107" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lPhone_no" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lSex" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tPhone_no" linkSize="6" min="-2" pref="222" max="-2" attributes="1"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="sAge" min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="rMale" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="rFemale" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lPhone_no" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lSex" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tPhone_no" linkSize="6" min="-2" pref="222" max="-2" attributes="1"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="sAge" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="rMale" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="rFemale" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lAge" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="bSubmit" linkSize="9" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lConfirmpass" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lPass" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="lUsername" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="tName" linkSize="6" pref="222" max="32767" attributes="1"/>
+                                  <Component id="tConfirmpass" linkSize="6" max="32767" attributes="0"/>
+                                  <Component id="tPass" linkSize="6" max="32767" attributes="0"/>
+                                  <Component id="tUsername" linkSize="6" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="bReset" linkSize="9" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="bCancel" linkSize="9" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lConfirmpass" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lPass" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="lUsername" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lCity" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lState" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="tName" linkSize="6" pref="222" max="32767" attributes="1"/>
-                              <Component id="tConfirmpass" linkSize="6" max="32767" attributes="0"/>
-                              <Component id="tPass" linkSize="6" max="32767" attributes="0"/>
-                              <Component id="tUsername" linkSize="6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tCity" linkSize="6" max="32767" attributes="0"/>
+                              <Component id="comboState" pref="222" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lCity" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lState" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tCity" linkSize="6" max="32767" attributes="0"/>
-                      <Component id="comboState" pref="222" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -189,11 +190,12 @@
                       <Component id="comboState" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="bSubmit" linkSize="8" max="32767" attributes="0"/>
-                      <Component id="bReset" linkSize="8" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="bReset" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bSubmit" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bCancel" linkSize="8" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -249,6 +251,9 @@
               <Font name="Palatino Linotype" size="14" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tPhone_noKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lCity">
           <Properties>
@@ -387,6 +392,17 @@
               </StringArray>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="bCancel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCancelActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

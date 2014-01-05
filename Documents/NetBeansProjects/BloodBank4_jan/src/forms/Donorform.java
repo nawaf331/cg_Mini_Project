@@ -10,6 +10,8 @@
  */
 package forms;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -96,6 +98,7 @@ public class Donorform extends javax.swing.JFrame {
         lConfirmpass = new javax.swing.JLabel();
         tConfirmpass = new javax.swing.JPasswordField();
         comboState = new javax.swing.JComboBox();
+        bCancel = new javax.swing.JButton();
         lHeading = new javax.swing.JLabel();
         lWarning = new javax.swing.JLabel();
 
@@ -120,6 +123,11 @@ public class Donorform extends javax.swing.JFrame {
         tCity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
 
         tPhone_no.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tPhone_no.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tPhone_noKeyTyped(evt);
+            }
+        });
 
         lCity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lCity.setText("City");
@@ -176,65 +184,71 @@ public class Donorform extends javax.swing.JFrame {
         comboState.setMaximumRowCount(28);
         comboState.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Karnataka", "Kerala", "Tamil Nadu", "Maharashtra", "Other" }));
 
+        bCancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bCancel.setText("Cancel");
+        bCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pFieldPanelLayout = new javax.swing.GroupLayout(pFieldPanel);
         pFieldPanel.setLayout(pFieldPanelLayout);
         pFieldPanelLayout.setHorizontalGroup(
             pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFieldPanelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lPhone_no)
-                    .addComponent(lSex))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tPhone_no, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pFieldPanelLayout.createSequentialGroup()
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(sAge, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rMale))
-                        .addGap(18, 18, 18)
-                        .addComponent(rFemale)))
-                .addContainerGap())
-            .addGroup(pFieldPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
+                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lPhone_no)
+                            .addComponent(lSex))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tPhone_no, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pFieldPanelLayout.createSequentialGroup()
+                                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sAge, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rMale))
+                                .addGap(18, 18, 18)
+                                .addComponent(rFemale))))
                     .addGroup(pFieldPanelLayout.createSequentialGroup()
                         .addComponent(lAge)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pFieldPanelLayout.createSequentialGroup()
+                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lName)
+                                .addComponent(lConfirmpass)
+                                .addComponent(lPass, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lUsername)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tName, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                                .addComponent(tConfirmpass)
+                                .addComponent(tPass)
+                                .addComponent(tUsername))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
+                                .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 17, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
                         .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lName)
-                            .addComponent(lConfirmpass)
-                            .addComponent(lPass, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lUsername))
+                            .addComponent(lCity)
+                            .addComponent(lState))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tName, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                            .addComponent(tConfirmpass)
-                            .addComponent(tPass)
-                            .addComponent(tUsername))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lCity)
-                    .addComponent(lState))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tCity)
-                    .addComponent(comboState, 0, 222, Short.MAX_VALUE))
+                            .addComponent(tCity)
+                            .addComponent(comboState, 0, 222, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
         pFieldPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tCity, tConfirmpass, tName, tPass, tPhone_no, tUsername});
 
-        pFieldPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bReset, bSubmit});
+        pFieldPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bCancel, bReset, bSubmit});
 
         pFieldPanelLayout.setVerticalGroup(
             pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,15 +291,16 @@ public class Donorform extends javax.swing.JFrame {
                     .addComponent(lState)
                     .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bReset)
+                    .addComponent(bSubmit)
+                    .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         pFieldPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {tCity, tConfirmpass, tName, tPass, tPhone_no, tUsername});
 
-        pFieldPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bReset, bSubmit});
+        pFieldPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bCancel, bReset, bSubmit});
 
         lHeading.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         lHeading.setText("Blood Donor Registration Form");
@@ -301,16 +316,17 @@ public class Donorform extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pFieldPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(lWarning))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                                .addComponent(lWarning)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +354,7 @@ public class Donorform extends javax.swing.JFrame {
         tPhone_no.setText(null);
         tCity.setText(null);
         comboState.setSelectedIndex(0);
-
+        tUsername.requestFocus();
     }//GEN-LAST:event_bResetActionPerformed
 
     private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
@@ -356,19 +372,25 @@ public class Donorform extends javax.swing.JFrame {
 
         if (getSubmittedUsername().isEmpty()) {
             lWarning.setText("Username not entered");
+            tUsername.requestFocus();
         } else if (getSubmittedPassword().isEmpty()) {
             lWarning.setText("Password not entered");
+            tPass.requestFocus();
         } else if (getSubmittedConfirmpassword().isEmpty()) {
             lWarning.setText("Confirm Password not entered");
+            tConfirmpass.requestFocus();
         } else if (!submittedPassword.equals(submittedConfirmpassword)) {
             lWarning.setText("Password Not Equal ");
-
+            tPass.requestFocus();
         } else if (getSubmittedFullName().isEmpty()) {
             lWarning.setText("Please provide full Name");
+            tName.requestFocus();
         } else if (getSubmittedAge() < 18) {
             lWarning.setText("We do not accept blood from kids!");
-        } else if (getSubmittedPhone().length() != 10) {
+            sAge.requestFocus();
+        } else if (!getSubmittedPhone().matches("^\\d+$") || getSubmittedPhone().length()!=10) {
             lWarning.setText("Phone Number is invalid... TRY AGAIN");
+            tPhone_no.requestFocus();
         } else {
 
             lWarning.setText(null);
@@ -407,7 +429,17 @@ public class Donorform extends javax.swing.JFrame {
         System.out.println("City=" + getSubmittedCity());
         System.out.println("State=" + getSubmittedState());
     }//GEN-LAST:event_bSubmitActionPerformed
+
+    private void tPhone_noKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPhone_noKeyTyped
+        
+    }//GEN-LAST:event_tPhone_noKeyTyped
+
+    private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bCancelActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCancel;
     private javax.swing.JButton bReset;
     private javax.swing.JButton bSubmit;
     private javax.swing.JComboBox comboState;

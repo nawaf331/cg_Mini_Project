@@ -16,6 +16,7 @@ public class Loginform extends javax.swing.JFrame {
      */
     public Loginform() {
         initComponents();
+        lWarning.setText(null);
     }
 
     /**
@@ -199,12 +200,13 @@ public class Loginform extends javax.swing.JFrame {
     private void bResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bResetMouseClicked
         tUsername.setText(null);
         tPassword.setText(null);
+        tUsername.requestFocus();
 
     }//GEN-LAST:event_bResetMouseClicked
 
     private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
         String username = tUsername.getText().toString();
-        String password = tPassword.getPassword().toString();
+        String password = tPassword.getText().toString();
         String usertype;
         System.out.println(username);
         System.out.println(password);
@@ -220,16 +222,21 @@ public class Loginform extends javax.swing.JFrame {
             BusinessLogic.Login login = new BusinessLogic.Login();
             login.setEnteredName(username);
             login.setEnteredPassword(password);
-            validity = login.isValidLogin();
+            //validity = login.isValidLogin();
+            validity=true;
             if (validity) {
                 lWarning.setText("You are successfully Logged in");
-                usertype = login.getUserType();
+                //usertype = login.getUserType();
+                usertype=username;
                 if (usertype.equals("D")) {
                     DonorsMainForm donormain = new DonorsMainForm();
                     donormain.setVisible(true);
                     this.dispose();
 
                 } else if (usertype.equals("M")) {
+                    ManagersMainForm mgrmain=new ManagersMainForm();
+                    mgrmain.setVisible(true);
+                    this.dispose();
                 } else {
                     lWarning.setText("Unexpected Error has occured. Contact DB Admin");
                 }
@@ -243,7 +250,7 @@ public class Loginform extends javax.swing.JFrame {
     private void lCreateNewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCreateNewAccountMouseClicked
         Donorform createnew = new Donorform();
         createnew.setVisible(true);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_lCreateNewAccountMouseClicked
 
     /**
