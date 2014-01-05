@@ -25,12 +25,12 @@ public class DBManager implements IDBManager {
         try {
             Class.forName(DBDRIVER);
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("DBManager.java -> Class.forName -> "+ex.getMessage());
         }
         try {
             con = DriverManager.getConnection(DBURL,USER,PASS);
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("DBManager.java -> getConnection -> "+ex.getMessage());
         }
         return con;
     }

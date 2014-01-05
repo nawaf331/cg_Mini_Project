@@ -10,8 +10,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +24,17 @@ public class Login {
     String sql;
     
     private String EnteredName;
+    private String EnteredPassword;
+    private String userType;
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+    
     public String getEnteredName() {
         return EnteredName;
     }
@@ -42,21 +50,21 @@ public class Login {
     public void setEnteredPassword(String EnteredPassword) {
         this.EnteredPassword = EnteredPassword;
     }
-    private String EnteredPassword;
+    
 
     public boolean isValidLogin() {
-        sql="SELECT username, password from loginTable";
+        sql="SELECT * FROM login";
         //core.DBManager connector=new core.DBManager();\
         connection=core.DBManager.con;
         try {
             stmt=connection.createStatement();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+            System.out.println("Login.java -> createStatement-> "+ ex.getMessage());
+        } 
         try {
             rs=stmt.executeQuery(sql);
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Login.java -> executeQuery -> " +ex.getMessage());
         }
         try {
             while(rs.next()) {
@@ -64,11 +72,13 @@ public class Login {
                 String pass=rs.getString("password");
                 
                 if(getEnteredName().equals(user) && getEnteredPassword().equals(pass)){
+                    String type=rs.getString("usertype");
+                    setUserType(type);
                     return true;
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Login.java -> rs.next() in while -> "+ex.getMessage());
         }
         return false;
     }

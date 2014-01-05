@@ -101,7 +101,8 @@ public class Donorform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BloodBank-Donor Registration");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         lState.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lState.setText("State");
@@ -139,6 +140,7 @@ public class Donorform extends javax.swing.JFrame {
 
         bSubmit.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bSubmit.setText("Submit");
+        bSubmit.setBorder(null);
         bSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bSubmitActionPerformed(evt);
@@ -147,6 +149,7 @@ public class Donorform extends javax.swing.JFrame {
 
         bReset.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bReset.setText("Reset");
+        bReset.setBorder(null);
         bReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bResetActionPerformed(evt);
@@ -298,21 +301,23 @@ public class Donorform extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lWarning)
-                            .addComponent(pFieldPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pFieldPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lWarning))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pFieldPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lWarning)
@@ -375,7 +380,7 @@ public class Donorform extends javax.swing.JFrame {
             if (returnFromDonorBL) {
                 lWarning.setText("User Created ");
             } else {
-                lWarning.setText("Database Error");
+                lWarning.setText("Username exists. Please provide a different Username");
 
             }
 
@@ -384,17 +389,17 @@ public class Donorform extends javax.swing.JFrame {
             donor.setAge(getSubmittedAge());
             donor.setGender(getSubmittedGender());
             donor.setPhone_no(getSubmittedPhone());
-            donor.setAddress(getSubmittedCity()+" "+getSubmittedState());
+            donor.setAddress(getSubmittedCity() + " " + getSubmittedState());
             returnFromDonorRegistrationBL = donor.insertDonor();
             if (returnFromDonorRegistrationBL) {
                 lWarning.setText("Insertion Successfull");
             } else {
-                lWarning.setText("Database Error");
+                lWarning.setText("Username exists. Please provide a different Username");
             }
         }
-        System.out.println(getSubmittedPassword());
-        System.out.println(getSubmittedConfirmpassword());
-        System.out.println(getSubmittedUsername());
+        System.out.println("username=" + getSubmittedUsername());
+        System.out.println("password" + getSubmittedPassword());
+        System.out.println("re password" + getSubmittedConfirmpassword());
         System.out.println("Name=" + getSubmittedFullName());
         System.out.println("Age=" + getSubmittedAge());
         System.out.println("Gender=" + getSubmittedGender());
@@ -402,8 +407,6 @@ public class Donorform extends javax.swing.JFrame {
         System.out.println("City=" + getSubmittedCity());
         System.out.println("State=" + getSubmittedState());
     }//GEN-LAST:event_bSubmitActionPerformed
-
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bReset;
     private javax.swing.JButton bSubmit;

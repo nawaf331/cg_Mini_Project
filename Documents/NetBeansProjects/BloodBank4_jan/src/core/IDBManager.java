@@ -6,8 +6,6 @@
 
 package core;
 
-import java.sql.Connection;
-
 /**
  *
  * @author Administrator

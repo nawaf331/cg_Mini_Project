@@ -47,10 +47,11 @@ public class Loginform extends javax.swing.JFrame {
         lWarning.setText("Warning here");
 
         lHeading.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        lHeading.setText("CONNECT TO BLOOD BANK");
+        lHeading.setText("Enter Login To Connect");
 
         bSubmit.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bSubmit.setText("Submit");
+        bSubmit.setBorder(null);
         bSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bSubmitActionPerformed(evt);
@@ -62,6 +63,7 @@ public class Loginform extends javax.swing.JFrame {
 
         bReset.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bReset.setText("Reset");
+        bReset.setBorder(null);
         bReset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bResetMouseClicked(evt);
@@ -127,7 +129,8 @@ public class Loginform extends javax.swing.JFrame {
 
         lCreateNewAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
         lCreateNewAccount.setForeground(java.awt.Color.blue);
-        lCreateNewAccount.setText("Click here if you not a registered user");
+        lCreateNewAccount.setText("Click here if you are not a registered user");
+        lCreateNewAccount.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
         lCreateNewAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lCreateNewAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -148,17 +151,17 @@ public class Loginform extends javax.swing.JFrame {
                                 .addComponent(lWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                                .addGap(0, 14, Short.MAX_VALUE)
-                                .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                                        .addComponent(lHeading)
-                                        .addGap(50, 50, 50)))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lCreateNewAccount)
                         .addGap(23, 23, 23))))
+            .addGroup(pMainLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(lHeading)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pMainLayout.setVerticalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +174,7 @@ public class Loginform extends javax.swing.JFrame {
                 .addComponent(lCreateNewAccount)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lWarning)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,7 +191,7 @@ public class Loginform extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,10 +206,20 @@ public class Loginform extends javax.swing.JFrame {
     private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
         String username=tUsername.getText().toString();
         String password=tPassword.getPassword().toString();
+        String usertype;
         System.out.println(username);
         System.out.println(password);
         boolean validity; 
         
+        if(username.isEmpty()) {
+            lWarning.setText("Please provide Entry for username field");
+            tUsername.requestFocus();
+        }
+        else if(password.isEmpty()) {
+            lWarning.setText("Please provide Entry for password field");
+            tPassword.requestDefaultFocus();
+        }
+        else {
         BusinessLogic.Login login=new BusinessLogic.Login();
         login.setEnteredName(username);
         login.setEnteredPassword(password);
@@ -214,10 +227,20 @@ public class Loginform extends javax.swing.JFrame {
         if(validity)
         {
             lWarning.setText("You are successfully Logged in");
-            
+            usertype=login.getUserType();
+            if(usertype.equals("D")) {
+                
+            }
+            else if(usertype.equals("M")){
+                
+            }
+            else {
+                lWarning.setText("Unexpected Error has occured. Contact DB Admin");
+            }
         }
         else {
             lWarning.setText("Login Failure. Please Enter Valid Username/Password");
+        }
         }
     }//GEN-LAST:event_bSubmitActionPerformed
 
