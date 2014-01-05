@@ -99,7 +99,7 @@ public class Donorform extends javax.swing.JFrame {
         lHeading = new javax.swing.JLabel();
         lWarning = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BloodBank-Donor Registration");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);

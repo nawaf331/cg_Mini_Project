@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package forms;
 
 /**
@@ -200,52 +199,48 @@ public class Loginform extends javax.swing.JFrame {
     private void bResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bResetMouseClicked
         tUsername.setText(null);
         tPassword.setText(null);
-        
+
     }//GEN-LAST:event_bResetMouseClicked
 
     private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
-        String username=tUsername.getText().toString();
-        String password=tPassword.getPassword().toString();
+        String username = tUsername.getText().toString();
+        String password = tPassword.getPassword().toString();
         String usertype;
         System.out.println(username);
         System.out.println(password);
-        boolean validity; 
-        
-        if(username.isEmpty()) {
+        boolean validity;
+
+        if (username.isEmpty()) {
             lWarning.setText("Please provide Entry for username field");
             tUsername.requestFocus();
-        }
-        else if(password.isEmpty()) {
+        } else if (password.isEmpty()) {
             lWarning.setText("Please provide Entry for password field");
             tPassword.requestDefaultFocus();
-        }
-        else {
-        BusinessLogic.Login login=new BusinessLogic.Login();
-        login.setEnteredName(username);
-        login.setEnteredPassword(password);
-        validity=login.isValidLogin();
-        if(validity)
-        {
-            lWarning.setText("You are successfully Logged in");
-            usertype=login.getUserType();
-            if(usertype.equals("D")) {
-                
+        } else {
+            BusinessLogic.Login login = new BusinessLogic.Login();
+            login.setEnteredName(username);
+            login.setEnteredPassword(password);
+            validity = login.isValidLogin();
+            if (validity) {
+                lWarning.setText("You are successfully Logged in");
+                usertype = login.getUserType();
+                if (usertype.equals("D")) {
+                    DonorsMainForm donormain = new DonorsMainForm();
+                    donormain.setVisible(true);
+                    this.dispose();
+
+                } else if (usertype.equals("M")) {
+                } else {
+                    lWarning.setText("Unexpected Error has occured. Contact DB Admin");
+                }
+            } else {
+                lWarning.setText("Login Failure. Please Enter Valid Username/Password");
             }
-            else if(usertype.equals("M")){
-                
-            }
-            else {
-                lWarning.setText("Unexpected Error has occured. Contact DB Admin");
-            }
-        }
-        else {
-            lWarning.setText("Login Failure. Please Enter Valid Username/Password");
-        }
         }
     }//GEN-LAST:event_bSubmitActionPerformed
 
     private void lCreateNewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCreateNewAccountMouseClicked
-        Donorform createnew=new Donorform();
+        Donorform createnew = new Donorform();
         createnew.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lCreateNewAccountMouseClicked
@@ -254,10 +249,14 @@ public class Loginform extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /*
+         * Set the Nimbus look and feel
+         */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -277,14 +276,16 @@ public class Loginform extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /*
+         * Create and display the form
+         */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new Loginform().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bReset;
     private javax.swing.JButton bSubmit;
