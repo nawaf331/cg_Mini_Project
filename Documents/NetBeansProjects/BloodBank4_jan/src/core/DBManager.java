@@ -14,19 +14,25 @@ import java.sql.SQLException;
  *
  * @author Administrator
  */
-public class DBManager implements IDBManager {
+public class DBManager implements MysqlIDBManager {
     static public Connection con=null;
     static {
         con=fnConnectionToDB();
     }
 
     private static Connection fnConnectionToDB() {
-        
         try {
-            Class.forName(DBDRIVER);
+            
+                Class.forName(DBDRIVER).newInstance();
+           
         } catch (ClassNotFoundException ex) {
             System.out.println("DBManager.java -> Class.forName -> "+ex.getMessage());
+        }catch (InstantiationException ex) {
+                System.out.println("DBManager.java -> Class.forName -> "+ex.getMessage());
+        } catch (IllegalAccessException ex) {
+                System.out.println("DBManager.java -> Class.forName -> "+ex.getMessage());
         }
+        
         try {
             con = DriverManager.getConnection(DBURL,USER,PASS);
         } catch (SQLException ex) {

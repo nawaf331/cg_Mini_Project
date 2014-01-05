@@ -43,7 +43,8 @@ public class Loginform extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Login");
 
-        lWarning.setForeground(new java.awt.Color(0, 102, 255));
+        lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        lWarning.setForeground(java.awt.Color.blue);
         lWarning.setText("Warning here");
 
         lHeading.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
@@ -90,7 +91,7 @@ public class Loginform extends javax.swing.JFrame {
                             .addComponent(lPassword))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(tPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                             .addComponent(tUsername))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -100,8 +101,6 @@ public class Loginform extends javax.swing.JFrame {
                         .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {tPassword, tUsername});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bReset, bSubmit});
 
@@ -127,7 +126,7 @@ public class Loginform extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {tPassword, tUsername});
 
-        lCreateNewAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        lCreateNewAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lCreateNewAccount.setForeground(java.awt.Color.blue);
         lCreateNewAccount.setText("Click here if you are not a registered user");
         lCreateNewAccount.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
@@ -143,25 +142,21 @@ public class Loginform extends javax.swing.JFrame {
         pMainLayout.setHorizontalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pMainLayout.createSequentialGroup()
-                        .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pMainLayout.createSequentialGroup()
-                                .addComponent(lWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lCreateNewAccount)
-                        .addGap(23, 23, 23))))
-            .addGroup(pMainLayout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(lHeading)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
+                        .addComponent(lCreateNewAccount)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(pMainLayout.createSequentialGroup()
+                        .addComponent(lWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         pMainLayout.setVerticalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,26 +167,26 @@ public class Loginform extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lCreateNewAccount)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lWarning)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -222,12 +217,12 @@ public class Loginform extends javax.swing.JFrame {
             BusinessLogic.Login login = new BusinessLogic.Login();
             login.setEnteredName(username);
             login.setEnteredPassword(password);
-            //validity = login.isValidLogin();
-            validity=true;
+            validity = login.isValidLogin();
+           // validity=true;
             if (validity) {
                 lWarning.setText("You are successfully Logged in");
-                //usertype = login.getUserType();
-                usertype=username;
+                usertype = login.getUserType();
+               /// usertype=username;
                 if (usertype.equals("D")) {
                     DonorsMainForm donormain = new DonorsMainForm();
                     donormain.setVisible(true);
