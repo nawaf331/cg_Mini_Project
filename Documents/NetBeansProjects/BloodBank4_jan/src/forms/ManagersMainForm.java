@@ -4,6 +4,9 @@
  */
 package forms;
 
+import BusinessLogic.DeleteUser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
@@ -125,6 +128,11 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
         bGetDonorInfo.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bGetDonorInfo.setText("Get Info");
+        bGetDonorInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGetDonorInfoActionPerformed(evt);
+            }
+        });
 
         lWelcome.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         lWelcome.setText("Welcome, Manager");
@@ -199,6 +207,11 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDeleteAccount.setText("I Quit The Job");
+        bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeleteAccountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,6 +267,22 @@ public class ManagersMainForm extends javax.swing.JFrame {
         hospitalRegister.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_bRegisterHospitalActionPerformed
+
+    private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
+        int confirmation;
+        confirmation=JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        System.out.println(confirmation);
+        if(confirmation==0){
+            BusinessLogic.DeleteUser deletemgr=new DeleteUser();
+            deletemgr.deletemgr();
+            this.dispose();
+        }
+    }//GEN-LAST:event_bDeleteAccountActionPerformed
+
+    private void bGetDonorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetDonorInfoActionPerformed
+        recordsForm donorRecords=new recordsForm();
+        donorRecords.setVisible(true);
+    }//GEN-LAST:event_bGetDonorInfoActionPerformed
 
     /**
      * @param args the command line arguments

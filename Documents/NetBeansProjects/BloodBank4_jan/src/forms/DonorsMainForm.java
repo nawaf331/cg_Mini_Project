@@ -4,6 +4,7 @@
  */
 package forms;
 
+import BusinessLogic.DeleteUser;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author DELL
  */
 public class DonorsMainForm extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form DonorsMainForm
@@ -57,6 +59,11 @@ public class DonorsMainForm extends javax.swing.JFrame {
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDeleteAccount.setText("Delete My Account");
         bDeleteAccount.setToolTipText("");
+        bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeleteAccountActionPerformed(evt);
+            }
+        });
 
         bDonateCash.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDonateCash.setText("Donate Cash");
@@ -194,8 +201,19 @@ public class DonorsMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bRemindMeActionPerformed
 
     private void bDonateCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateCashActionPerformed
-                JOptionPane.showConfirmDialog(this, "We do not have any online payment option. You may pay manager direclty and get the reciept. Thak you","Thank You",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showConfirmDialog(this, "We do not have any online payment option.\nYou may pay manager directly","Thank You",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bDonateCashActionPerformed
+
+    private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
+        int confirmation;
+        confirmation=JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        System.out.println(confirmation);
+        if(confirmation==0){
+            BusinessLogic.DeleteUser deletemgr=new DeleteUser();
+            deletemgr.deleteDonor();
+            this.dispose();
+        }
+    }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     /**
      * @param args the command line arguments

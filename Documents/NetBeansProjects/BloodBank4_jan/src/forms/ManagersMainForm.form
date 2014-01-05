@@ -275,6 +275,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Get Info"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGetDonorInfoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lWelcome">
           <Properties>
@@ -323,6 +326,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="I Quit The Job"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDeleteAccountActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

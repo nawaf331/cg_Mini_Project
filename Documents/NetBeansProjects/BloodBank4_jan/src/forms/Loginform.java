@@ -215,7 +215,7 @@ public class Loginform extends javax.swing.JFrame {
             tUsername.requestFocus();
         } else if (password.isEmpty()) {
             lWarning.setText("Please provide Entry for password field");
-            tPassword.requestDefaultFocus();
+            tPassword.requestFocus();
         } else {
             BusinessLogic.Login login = new BusinessLogic.Login();
             login.setEnteredName(username);
@@ -235,6 +235,7 @@ public class Loginform extends javax.swing.JFrame {
                 }
             } else {
                 lWarning.setText("Login Failure. Please Enter Valid Username/Password");
+                tUsername.requestFocus();
             }
         }
     }//GEN-LAST:event_bSubmitActionPerformed
