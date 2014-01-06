@@ -319,5 +319,6 @@ public class FirstPageForm extends javax.swing.JFrame {
 
     private void initiateComponents() {
         //textAreaQuotes.setText("Saving the world isn't Easy \nSaving a Life IS. \nDonating 1 Pint of blood can save upto 3 lives.");
+        setLocation(200, 100);
     }
 }

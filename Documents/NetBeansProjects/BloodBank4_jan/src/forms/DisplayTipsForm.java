@@ -15,6 +15,7 @@ public class DisplayTipsForm extends javax.swing.JFrame {
      */
     public DisplayTipsForm() {
         initComponents();
+        setLocation(200, 100);
         textAreaContent.setText("#  Please have a good meal at least 3 hours before donating blood.\n\n"+
                 "#  Please accept the snacks offered to you after the donation,\n   it is vital you have them. You are recommended to have a good meal later.\n\n"+
                 "#  Please avoid smoking on the day before donating.\n   You can smoke 3 hours after donation.\n\n"+

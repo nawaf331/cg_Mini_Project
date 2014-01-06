@@ -18,7 +18,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
      */
     public ManagersMainForm() {
         initComponents();
-        
+        myInitComponnent();
     }
 
     /**
@@ -365,4 +365,12 @@ public class ManagersMainForm extends javax.swing.JFrame {
     private javax.swing.JLabel lNoOfReceptors;
     private javax.swing.JLabel lWelcome;
     // End of variables declaration//GEN-END:variables
+
+    private void myInitComponnent() {
+        setLocation(200, 100);
+        BusinessLogic.fillMgrMainBL fillPage=new BusinessLogic.fillMgrMainBL();
+        fillPage.getNoOfDonors();
+        fillPage.getNoOfHospitals();
+        fillPage.getEachBloodData();
+    }
 }

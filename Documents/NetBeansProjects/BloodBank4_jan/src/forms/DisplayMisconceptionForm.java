@@ -15,6 +15,7 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
      */
     public DisplayMisconceptionForm() {
         initComponents();
+        setLocation(200, 100);
         //textAreaContent.setColumns(40);
         textAreaContent.setText("#  You wont feel drained or tired if you continue to drink fluids and have a good meal.\n\n"+
                 "#  You can resume your normal activities after donating blood, though you are asked to\n  refrain from exercise or heavy weight lifting for twelve hours after donation.\n\n"+

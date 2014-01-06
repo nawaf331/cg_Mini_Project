@@ -15,6 +15,7 @@ public class SellBloodForm extends javax.swing.JFrame {
      */
     public SellBloodForm() {
         initComponents();
+        setLocation(200, 100);
        // spinnerQuantity.setm
     }
 

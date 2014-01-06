@@ -18,6 +18,7 @@ public class Loginform extends javax.swing.JFrame {
      */
     public Loginform() {
         initComponents();
+        setLocation(200, 100);
         lWarning.setText(null);
     }
     

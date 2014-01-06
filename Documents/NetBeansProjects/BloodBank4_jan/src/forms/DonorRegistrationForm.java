@@ -19,6 +19,16 @@ import javax.swing.JOptionPane;
 public class DonorRegistrationForm extends javax.swing.JFrame {
 
     private String submittedUsername;
+    private String submittedPassword;
+    private String submittedConfirmpassword;
+    private String submittedFullName;
+    private int submittedAge;
+    private String submittedGender;
+    private String submittedPhone;
+    private String submittedCity;
+    private String submittedState;
+    boolean returnFromDonorBL;
+    boolean returnFromDonorRegistrationBL;
 
     public String getSubmittedConfirmpassword() {
         return submittedConfirmpassword;
@@ -43,16 +53,7 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
     public void setSubmittedUsername(String submittedUsername) {
         this.submittedUsername = submittedUsername;
     }
-    private String submittedPassword;
-    private String submittedConfirmpassword;
-    private String submittedFullName;
-    private int submittedAge;
-    private String submittedGender;
-    private String submittedPhone;
-    private String submittedCity;
-    private String submittedState;
-    boolean returnFromDonorBL;
-    boolean returnFromDonorRegistrationBL;
+    
 
     /**
      * Creates new form Donor form
@@ -64,6 +65,7 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
         rMale.setSelected(true);
         rMale.setActionCommand("Male");
         rFemale.setActionCommand("Female");
+        setLocation(200, 100);
     }
 
     /**
@@ -115,6 +117,7 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
         rFemale.setText("Female");
 
         sAge.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        sAge.setModel(new javax.swing.SpinnerNumberModel(18, 18, 75, 1));
 
         genderButtonGroup.add(rMale);
         rMale.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
@@ -197,55 +200,47 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
         pFieldPanelLayout.setHorizontalGroup(
             pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFieldPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lPhone_no)
-                            .addComponent(lSex))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tPhone_no, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pFieldPanelLayout.createSequentialGroup()
-                                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sAge, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rMale))
-                                .addGap(18, 18, 18)
-                                .addComponent(rFemale))))
-                    .addGroup(pFieldPanelLayout.createSequentialGroup()
+                    .addComponent(bSubmit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
+                            .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lPhone_no)
+                                .addComponent(lSex))
+                            .addGap(54, 54, 54))
                         .addComponent(lAge)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pFieldPanelLayout.createSequentialGroup()
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pFieldPanelLayout.createSequentialGroup()
-                                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lName)
-                                    .addComponent(lConfirmpass)
-                                    .addComponent(lPass, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lUsername))
-                                .addGap(0, 17, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tName, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                                .addComponent(tConfirmpass)
-                                .addComponent(tPass)
-                                .addComponent(tUsername))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
-                                .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lName)
+                        .addComponent(lConfirmpass)
+                        .addComponent(lPass, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lUsername)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
+                            .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lCity)
+                                .addComponent(lState))
+                            .addGap(88, 88, 88))))
+                .addGap(18, 18, 18)
+                .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tName, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                        .addComponent(tConfirmpass)
+                        .addComponent(tPass)
+                        .addComponent(tUsername))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createSequentialGroup()
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lCity)
-                            .addComponent(lState))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tCity)
-                            .addComponent(comboState, 0, 222, Short.MAX_VALUE))))
+                        .addComponent(bReset, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tPhone_no, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pFieldPanelLayout.createSequentialGroup()
+                            .addGroup(pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(sAge, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rMale))
+                            .addGap(18, 18, 18)
+                            .addComponent(rFemale)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFieldPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tCity)
+                        .addComponent(comboState, 0, 222, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -322,22 +317,21 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
                         .addGap(138, 138, 138)
                         .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pFieldPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lWarning)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addGap(105, 105, 105)
+                        .addComponent(lWarning))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(pFieldPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pFieldPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pFieldPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lWarning)
                 .addGap(21, 21, 21))
         );

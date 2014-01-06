@@ -17,6 +17,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
      */
     public HospitalOrderForm() {
         initComponents();
+        setLocation(200, 100);
     }
 
     /**

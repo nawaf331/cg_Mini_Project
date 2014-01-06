@@ -29,11 +29,12 @@ public class DonorsMainForm extends javax.swing.JFrame {
      */
     public DonorsMainForm() {
         initComponents();
-        initComponents();
+        initiateComponents();
         
     }
     
     private void initiateComponents() {
+        setLocation(200, 100);
         lWarning.setText(null);
         BusinessLogic.fillDonorMainPage fillPage=new BusinessLogic.fillDonorMainPage();
         fillPage.fnGetLastDonationDate();
@@ -41,7 +42,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         lLastBloodDonation.setText("Your Last Blood donation was on : " + getLastDonation());
         
         fillPage.fnGetNameOfTheUser();
-        lWelcome.setText("Welcome, "+fillPage.getsNameOftheUser());
+        lWelcome.setText("Welcome, " + fillPage.getsNameOftheUser());
         
         fillPage.fnGetMgrName();
         
@@ -65,6 +66,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         bDeleteAccount = new javax.swing.JButton();
         bDonateCash = new javax.swing.JButton();
         bSellBlood = new javax.swing.JButton();
+        bRefresh = new javax.swing.JButton();
         lWarning = new javax.swing.JLabel();
         innerPanel = new javax.swing.JPanel();
         lRegisteredWith = new javax.swing.JLabel();
@@ -113,11 +115,20 @@ public class DonorsMainForm extends javax.swing.JFrame {
         });
 
         bSellBlood.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bSellBlood.setText("Sell Blood");
+        bSellBlood.setText("Be a Mediator");
         bSellBlood.setToolTipText("Provides information about Manager. You may donate cash to him and collect reciept");
         bSellBlood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bSellBloodActionPerformed(evt);
+            }
+        });
+
+        bRefresh.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        bRefresh.setText("Refresh/Extra");
+        bRefresh.setToolTipText("Provides information about Manager. You may donate cash to him and collect reciept");
+        bRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRefreshActionPerformed(evt);
             }
         });
 
@@ -130,16 +141,17 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buttonpanelLayout.createSequentialGroup()
                         .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(bRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(buttonpanelLayout.createSequentialGroup()
                         .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(bDeleteAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bSellBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(20, 20, 20))))
+                            .addComponent(bSellBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(20, 20, 20))
         );
 
         buttonpanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bViewProfile});
@@ -156,7 +168,9 @@ public class DonorsMainForm extends javax.swing.JFrame {
                     .addComponent(bViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bDeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -272,7 +286,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bRemindMeActionPerformed
 
     private void bDonateCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateCashActionPerformed
-                JOptionPane.showConfirmDialog(this, "We do not have any online payment option.\nYou may pay manager directly","Thank You",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showConfirmDialog(this, "We do not have any online payment option.\nYou may pay manager directly","Thank You",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bDonateCashActionPerformed
 
     private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
@@ -294,9 +308,8 @@ public class DonorsMainForm extends javax.swing.JFrame {
         Object[] possibilities = {"A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-"};
         String s = (String)JOptionPane.showInputDialog(
                     this,
-                    "Complete the sentence:\n"
-                    + "\"Green eggs and...\"",
-                    "Customized Dialog",
+                    "Select Blood Group\n",
+                    "Select Blood",
                     JOptionPane.PLAIN_MESSAGE,
                     null,
                     possibilities,
@@ -308,6 +321,10 @@ public class DonorsMainForm extends javax.swing.JFrame {
         SellBloodForm sell=new SellBloodForm();
         sell.setVisible(true);
     }//GEN-LAST:event_bSellBloodActionPerformed
+
+    private void bRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRefreshActionPerformed
+        initiateComponents();
+    }//GEN-LAST:event_bRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,6 +372,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
     private javax.swing.JButton bDeleteAccount;
     private javax.swing.JButton bDonateBlood;
     private javax.swing.JButton bDonateCash;
+    private javax.swing.JButton bRefresh;
     private javax.swing.JButton bRemindMe;
     private javax.swing.JButton bSellBlood;
     private javax.swing.JButton bViewProfile;
