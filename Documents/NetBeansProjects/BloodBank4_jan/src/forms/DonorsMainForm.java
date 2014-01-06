@@ -61,9 +61,10 @@ public class DonorsMainForm extends javax.swing.JFrame {
         OuterPanel = new javax.swing.JPanel();
         buttonpanel = new javax.swing.JPanel();
         bDonateBlood = new javax.swing.JButton();
-        bUpdateProfile = new javax.swing.JButton();
+        bViewProfile = new javax.swing.JButton();
         bDeleteAccount = new javax.swing.JButton();
         bDonateCash = new javax.swing.JButton();
+        bSellBlood = new javax.swing.JButton();
         lWarning = new javax.swing.JLabel();
         innerPanel = new javax.swing.JPanel();
         lRegisteredWith = new javax.swing.JLabel();
@@ -79,12 +80,17 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
         bDonateBlood.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDonateBlood.setText("Donate Blood");
-
-        bUpdateProfile.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bUpdateProfile.setText("View My profile");
-        bUpdateProfile.addActionListener(new java.awt.event.ActionListener() {
+        bDonateBlood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bUpdateProfileActionPerformed(evt);
+                bDonateBloodActionPerformed(evt);
+            }
+        });
+
+        bViewProfile.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        bViewProfile.setText("View My profile");
+        bViewProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bViewProfileActionPerformed(evt);
             }
         });
 
@@ -106,39 +112,55 @@ public class DonorsMainForm extends javax.swing.JFrame {
             }
         });
 
+        bSellBlood.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        bSellBlood.setText("Sell Blood");
+        bSellBlood.setToolTipText("Provides information about Manager. You may donate cash to him and collect reciept");
+        bSellBlood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSellBloodActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout buttonpanelLayout = new javax.swing.GroupLayout(buttonpanel);
         buttonpanel.setLayout(buttonpanelLayout);
         buttonpanelLayout.setHorizontalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bUpdateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bDeleteAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonpanelLayout.createSequentialGroup()
+                        .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(buttonpanelLayout.createSequentialGroup()
+                        .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bDeleteAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bSellBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(20, 20, 20))))
         );
 
-        buttonpanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
+        buttonpanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bViewProfile});
 
         buttonpanelLayout.setVerticalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bDonateCash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bDonateBlood, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bDonateBlood, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bSellBlood, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bUpdateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bViewProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bDeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bDonateCash, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        buttonpanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bUpdateProfile});
+        buttonpanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bViewProfile});
 
         lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lWarning.setForeground(java.awt.Color.blue);
@@ -212,7 +234,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
             .addGroup(OuterPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lWarning)
@@ -258,15 +280,34 @@ public class DonorsMainForm extends javax.swing.JFrame {
         confirmation=JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         System.out.println(confirmation);
         if(confirmation==0){
-            BusinessLogic.DeleteUser deletemgr=new DeleteUser();
-            deletemgr.deleteDonor();
+            BusinessLogic.DeleteUser deletednr=new DeleteUser();
+            deletednr.deleteDonor();
             this.dispose();
         }
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
-    private void bUpdateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateProfileActionPerformed
+    private void bViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViewProfileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bUpdateProfileActionPerformed
+    }//GEN-LAST:event_bViewProfileActionPerformed
+
+    private void bDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateBloodActionPerformed
+        Object[] possibilities = {"A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-"};
+        String s = (String)JOptionPane.showInputDialog(
+                    this,
+                    "Complete the sentence:\n"
+                    + "\"Green eggs and...\"",
+                    "Customized Dialog",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    possibilities,
+                    "ham");
+        
+    }//GEN-LAST:event_bDonateBloodActionPerformed
+
+    private void bSellBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSellBloodActionPerformed
+        SellBloodForm sell=new SellBloodForm();
+        sell.setVisible(true);
+    }//GEN-LAST:event_bSellBloodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,12 +343,12 @@ public class DonorsMainForm extends javax.swing.JFrame {
         /*
          * Create and display the form
          */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 new DonorsMainForm().setVisible(true);
             }
-        });*/
+        });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel OuterPanel;
@@ -315,7 +356,8 @@ public class DonorsMainForm extends javax.swing.JFrame {
     private javax.swing.JButton bDonateBlood;
     private javax.swing.JButton bDonateCash;
     private javax.swing.JButton bRemindMe;
-    private javax.swing.JButton bUpdateProfile;
+    private javax.swing.JButton bSellBlood;
+    private javax.swing.JButton bViewProfile;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JPanel innerPanel;
     private javax.swing.JLabel lLastBloodDonation;

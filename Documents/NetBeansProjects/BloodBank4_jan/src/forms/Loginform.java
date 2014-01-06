@@ -139,6 +139,12 @@ public class Loginform extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lCreateNewAccountMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lCreateNewAccountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lCreateNewAccountMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout pMainLayout = new javax.swing.GroupLayout(pMain);
@@ -252,6 +258,14 @@ public class Loginform extends javax.swing.JFrame {
         createnew.setVisible(true);
         //this.dispose();
     }//GEN-LAST:event_lCreateNewAccountMouseClicked
+
+    private void lCreateNewAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCreateNewAccountMouseEntered
+        lCreateNewAccount.setForeground(java.awt.Color.green);
+    }//GEN-LAST:event_lCreateNewAccountMouseEntered
+
+    private void lCreateNewAccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCreateNewAccountMouseExited
+        lCreateNewAccount.setForeground(java.awt.Color.blue);
+    }//GEN-LAST:event_lCreateNewAccountMouseExited
 
     /**
      * @param args the command line arguments

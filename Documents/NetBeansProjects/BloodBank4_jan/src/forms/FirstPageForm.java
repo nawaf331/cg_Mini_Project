@@ -27,19 +27,22 @@ public class FirstPageForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         RegisterDonor = new javax.swing.JLabel();
-        lBloodBankName = new javax.swing.JLabel();
-        lTagline = new javax.swing.JLabel();
         bLoginHere = new javax.swing.JButton();
         lQuoteFirstline = new javax.swing.JLabel();
-        lQuoteSecondline = new javax.swing.JLabel();
-        lQuoteThirdLine = new javax.swing.JLabel();
-        lTips = new javax.swing.JLabel();
         lMisconception = new javax.swing.JLabel();
+        lTips = new javax.swing.JLabel();
+        lTagline = new javax.swing.JLabel();
         bBloodInfo = new javax.swing.JButton();
+        lQuoteThirdLine = new javax.swing.JLabel();
+        lQuoteSecondline = new javax.swing.JLabel();
+        lBloodBankName = new javax.swing.JLabel();
+        bHospitalOrder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank Management System");
+        setResizable(false);
 
         RegisterDonor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blood_bank.gif"))); // NOI18N
         RegisterDonor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -48,14 +51,6 @@ public class FirstPageForm extends javax.swing.JFrame {
                 RegisterDonorMouseClicked(evt);
             }
         });
-
-        lBloodBankName.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        lBloodBankName.setForeground(java.awt.Color.red);
-        lBloodBankName.setText("Some Name Blood Bank");
-
-        lTagline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lTagline.setForeground(new java.awt.Color(17, 124, 17));
-        lTagline.setText("We are Always Ready for donating blood...");
 
         bLoginHere.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
         bLoginHere.setText("Login here ");
@@ -69,30 +64,6 @@ public class FirstPageForm extends javax.swing.JFrame {
         lQuoteFirstline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lQuoteFirstline.setForeground(java.awt.Color.red);
         lQuoteFirstline.setText("\"Saving the world isn't Easy");
-
-        lQuoteSecondline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lQuoteSecondline.setForeground(java.awt.Color.red);
-        lQuoteSecondline.setText("Saving a Life IS.");
-
-        lQuoteThirdLine.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lQuoteThirdLine.setForeground(java.awt.Color.red);
-        lQuoteThirdLine.setText("Donating 1 Pint of blood can save upto 3 lives.\"");
-
-        lTips.setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
-        lTips.setForeground(java.awt.Color.blue);
-        lTips.setText("Tips on Blood Donating");
-        lTips.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lTips.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lTipsMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lTipsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lTipsMouseExited(evt);
-            }
-        });
 
         lMisconception.setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
         lMisconception.setForeground(java.awt.Color.blue);
@@ -110,71 +81,132 @@ public class FirstPageForm extends javax.swing.JFrame {
             }
         });
 
-        bBloodInfo.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
-        bBloodInfo.setText("Get Blood Info");
+        lTips.setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
+        lTips.setForeground(java.awt.Color.blue);
+        lTips.setText("Tips on Blood Donating");
+        lTips.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lTips.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lTipsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lTipsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lTipsMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lTagline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lTagline.setForeground(new java.awt.Color(17, 124, 17));
+        lTagline.setText("We are Always Ready for donating blood...");
+
+        bBloodInfo.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
+        bBloodInfo.setText("Find Donors");
+        bBloodInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBloodInfoActionPerformed(evt);
+            }
+        });
+
+        lQuoteThirdLine.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lQuoteThirdLine.setForeground(java.awt.Color.red);
+        lQuoteThirdLine.setText("Donating 1 Pint of blood can save upto 3 lives.\"");
+
+        lQuoteSecondline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lQuoteSecondline.setForeground(java.awt.Color.red);
+        lQuoteSecondline.setText("Saving a Life IS.");
+
+        lBloodBankName.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        lBloodBankName.setForeground(java.awt.Color.red);
+        lBloodBankName.setText("Some Name Blood Bank");
+
+        bHospitalOrder.setFont(new java.awt.Font("Ubuntu Light", 1, 14)); // NOI18N
+        bHospitalOrder.setText("Hospital Order");
+        bHospitalOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHospitalOrderActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lQuoteFirstline)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(RegisterDonor)
                                 .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bLoginHere)
-                                    .addComponent(bBloodInfo)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bBloodInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bLoginHere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bHospitalOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(lQuoteSecondline)
                             .addComponent(lQuoteThirdLine)
                             .addComponent(lTips)
                             .addComponent(lMisconception)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lTagline)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lBloodBankName)
-                                .addGap(21, 21, 21)))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lTagline)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lBloodBankName)
+                            .addGap(21, 21, 21))))
+                .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bBloodInfo, bLoginHere});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lBloodBankName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lTagline)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(RegisterDonor)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(lQuoteFirstline)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lQuoteSecondline))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bLoginHere, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bBloodInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bBloodInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bHospitalOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lQuoteThirdLine)
                 .addGap(25, 25, 25)
                 .addComponent(lTips)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lMisconception)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bBloodInfo, bLoginHere});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bBloodInfo, bLoginHere});
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,6 +250,16 @@ public class FirstPageForm extends javax.swing.JFrame {
         DisplayMisconceptionForm misconcept=new DisplayMisconceptionForm();
         misconcept.setVisible(true);
     }//GEN-LAST:event_lMisconceptionMouseClicked
+
+    private void bHospitalOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHospitalOrderActionPerformed
+        HospitalOrderForm order = new HospitalOrderForm();
+        order.setVisible(true);
+    }//GEN-LAST:event_bHospitalOrderActionPerformed
+
+    private void bBloodInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBloodInfoActionPerformed
+        FindDonorsForm find=new FindDonorsForm();
+        find.setVisible(true);
+    }//GEN-LAST:event_bBloodInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,7 +305,9 @@ public class FirstPageForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel RegisterDonor;
     private javax.swing.JButton bBloodInfo;
+    private javax.swing.JButton bHospitalOrder;
     private javax.swing.JButton bLoginHere;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lBloodBankName;
     private javax.swing.JLabel lMisconception;
     private javax.swing.JLabel lQuoteFirstline;
