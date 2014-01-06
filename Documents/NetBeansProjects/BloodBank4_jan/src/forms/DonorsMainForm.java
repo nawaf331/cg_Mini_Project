@@ -29,6 +29,11 @@ public class DonorsMainForm extends javax.swing.JFrame {
      */
     public DonorsMainForm() {
         initComponents();
+        initComponents();
+        
+    }
+    
+    private void initiateComponents() {
         lWarning.setText(null);
         BusinessLogic.fillDonorMainPage fillPage=new BusinessLogic.fillDonorMainPage();
         fillPage.fnGetLastDonationDate();
@@ -39,6 +44,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         lWelcome.setText("Welcome, "+fillPage.getsNameOftheUser());
         
         fillPage.fnGetMgrName();
+        
         
     }
 
@@ -75,7 +81,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         bDonateBlood.setText("Donate Blood");
 
         bUpdateProfile.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bUpdateProfile.setText("Update My profile");
+        bUpdateProfile.setText("View My profile");
         bUpdateProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bUpdateProfileActionPerformed(evt);

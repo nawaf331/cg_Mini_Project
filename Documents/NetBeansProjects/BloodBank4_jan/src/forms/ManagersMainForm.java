@@ -18,6 +18,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
      */
     public ManagersMainForm() {
         initComponents();
+        
     }
 
     /**
@@ -211,7 +212,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
         bUpdateBloodCost.setText("Update a blood cost");
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bDeleteAccount.setText("I Quit The Job");
+        bDeleteAccount.setText("Refresh");
         bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDeleteAccountActionPerformed(evt);
