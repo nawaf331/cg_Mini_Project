@@ -76,6 +76,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Registered User");
+        setResizable(false);
 
         lWelcome.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         lWelcome.setText("Welcome, User");

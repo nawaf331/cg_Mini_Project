@@ -38,9 +38,11 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
         misconceptionheading = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaContent = new javax.swing.JTextArea();
+        bExit = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood Donation - Misconception");
+        setResizable(false);
 
         misconceptionheading.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         misconceptionheading.setForeground(java.awt.Color.red);
@@ -52,6 +54,14 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
         textAreaContent.setRows(5);
         jScrollPane1.setViewportView(textAreaContent);
 
+        bExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bExit.setText("Exit");
+        bExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,12 +69,18 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(misconceptionheading)
-                        .addGap(0, 195, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(misconceptionheading)
+                                .addGap(0, 195, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bExit, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,12 +88,18 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(misconceptionheading)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bExit, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +143,7 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bExit;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel misconceptionheading;
     private javax.swing.JTextArea textAreaContent;

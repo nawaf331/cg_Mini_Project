@@ -49,6 +49,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood Bank - Hospital Order");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel1.setText("Order Blood");

@@ -51,8 +51,9 @@ public class ManagersMainForm extends javax.swing.JFrame {
         bUpdateBloodCost = new javax.swing.JButton();
         bDeleteAccount = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood bank-manager");
+        setResizable(false);
 
         bGetReceptorInfo.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bGetReceptorInfo.setText("Get Info");

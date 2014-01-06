@@ -412,6 +412,7 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
             if (returnFromDonorRegistrationBL) {
                 lWarning.setText("Insertion Successfull");
                 JOptionPane.showConfirmDialog(this, "Account Created Successfully, Login to connect", "Success", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
             } else {
                 lWarning.setText("Username exists. Please provide a different Username");
             }

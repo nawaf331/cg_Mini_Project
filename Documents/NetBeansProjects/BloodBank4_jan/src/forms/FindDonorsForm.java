@@ -47,6 +47,7 @@ public class FindDonorsForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood Management-Find Donors");
+        setResizable(false);
 
         fDonorname.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         fDonorname.setModel(new javax.swing.table.DefaultTableModel(

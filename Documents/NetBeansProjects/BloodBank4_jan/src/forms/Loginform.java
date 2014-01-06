@@ -47,6 +47,7 @@ public class Loginform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Login");
+        setResizable(false);
 
         lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lWarning.setForeground(java.awt.Color.blue);

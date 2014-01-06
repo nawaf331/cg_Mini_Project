@@ -37,7 +37,10 @@ public class SellBloodForm extends javax.swing.JFrame {
         bDone = new javax.swing.JButton();
         comboBloodGroup = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Blood Management-Mediator");
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Transfer Blood in Bulks");
