@@ -6,11 +6,17 @@
 
 package BusinessLogic;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
  */
-public class Hospital {
+public class HospitalOrderBL {
+
+    public void getMeBlood() {
+        JOptionPane.showConfirmDialog(null, "not done");
+    }
 
     /**
      * @param args the command line arguments

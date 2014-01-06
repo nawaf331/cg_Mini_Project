@@ -6,6 +6,8 @@
 
 package forms;
 
+import BusinessLogic.HospitalOrderBL;
+
 /**
  *
  * @author Administrator
@@ -18,6 +20,8 @@ public class HospitalOrderForm extends javax.swing.JFrame {
     public HospitalOrderForm() {
         initComponents();
         setLocation(200, 100);
+        tHospital.requestFocus();
+        
     }
 
     /**
@@ -37,12 +41,12 @@ public class HospitalOrderForm extends javax.swing.JFrame {
         lQuantity = new javax.swing.JLabel();
         lHospital = new javax.swing.JLabel();
         lPhone_no = new javax.swing.JLabel();
-        cBloodtype = new javax.swing.JComboBox();
+        comboBloodtype = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tCity = new javax.swing.JTextField();
         lState = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jSpinner1 = new javax.swing.JSpinner();
+        comboState = new javax.swing.JComboBox();
+        spinnerQuantity = new javax.swing.JSpinner();
         bOrder = new javax.swing.JButton();
         bReset = new javax.swing.JButton();
         bCancel = new javax.swing.JButton();
@@ -70,30 +74,35 @@ public class HospitalOrderForm extends javax.swing.JFrame {
         lPhone_no.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lPhone_no.setText("Phone_no");
 
-        cBloodtype.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        cBloodtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A+", "AB-", "A-", "B+", "B-", "O+", "O-", "AB+", " ", " " }));
-        cBloodtype.addActionListener(new java.awt.event.ActionListener() {
+        comboBloodtype.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        comboBloodtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A+", "AB-", "A-", "B+", "B-", "O+", "O-", "AB+", " ", " " }));
+        comboBloodtype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBloodtypeActionPerformed(evt);
+                comboBloodtypeActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         jLabel2.setText("City");
 
-        jTextField1.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tCity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
 
         lState.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lState.setText("State");
 
-        jComboBox1.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Karnataka", "Kerala", "Tamil Nadu", "Maharashtra", "Other" }));
+        comboState.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        comboState.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Karnataka", "Kerala", "Tamil Nadu", "Maharashtra", "Other" }));
 
-        jSpinner1.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        spinnerQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        spinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
 
         bOrder.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bOrder.setText("Order");
+        bOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOrderActionPerformed(evt);
+            }
+        });
 
         bReset.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bReset.setText("Reset");
@@ -121,11 +130,11 @@ public class HospitalOrderForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lBloodtype)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cBloodtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBloodtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(lQuantity)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lHospital)
@@ -138,8 +147,8 @@ public class HospitalOrderForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tPhone_no)
-                            .addComponent(jTextField1)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tCity)
+                            .addComponent(comboState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tHospital, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
@@ -167,17 +176,17 @@ public class HospitalOrderForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lState, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
+                    .addComponent(comboState))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lBloodtype)
-                    .addComponent(cBloodtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBloodtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lQuantity)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +197,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bCancel, bOrder, bReset});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cBloodtype, jComboBox1, jSpinner1, jTextField1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBloodtype, comboState, spinnerQuantity, tCity});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,17 +225,28 @@ public class HospitalOrderForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cBloodtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBloodtypeActionPerformed
+    private void comboBloodtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBloodtypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cBloodtypeActionPerformed
+    }//GEN-LAST:event_comboBloodtypeActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
 
     private void bResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetActionPerformed
-        bReset.setText("yet t i");
+        tHospital.setText(null);
+        tPhone_no.setText(null);
+        tCity.setText(null);
+        comboState.setSelectedIndex(0);
+        comboBloodtype.setSelectedIndex(0);
+        spinnerQuantity.setValue(1);
+        tHospital.requestFocus();
     }//GEN-LAST:event_bResetActionPerformed
+
+    private void bOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOrderActionPerformed
+        BusinessLogic.HospitalOrderBL order=new BusinessLogic.HospitalOrderBL();
+        order.getMeBlood();
+    }//GEN-LAST:event_bOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,18 +287,18 @@ public class HospitalOrderForm extends javax.swing.JFrame {
     private javax.swing.JButton bCancel;
     private javax.swing.JButton bOrder;
     private javax.swing.JButton bReset;
-    private javax.swing.JComboBox cBloodtype;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox comboBloodtype;
+    private javax.swing.JComboBox comboState;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lBloodtype;
     private javax.swing.JLabel lHospital;
     private javax.swing.JLabel lPhone_no;
     private javax.swing.JLabel lQuantity;
     private javax.swing.JLabel lState;
+    private javax.swing.JSpinner spinnerQuantity;
+    private javax.swing.JTextField tCity;
     private javax.swing.JTextField tHospital;
     private javax.swing.JTextField tPhone_no;
     // End of variables declaration//GEN-END:variables

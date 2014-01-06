@@ -302,7 +302,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViewProfileActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_bViewProfileActionPerformed
 
     private void bDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateBloodActionPerformed
