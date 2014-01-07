@@ -277,7 +277,7 @@ public class FirstPageForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bHospitalOrderActionPerformed
 
     private void bBloodInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBloodInfoActionPerformed
-        FindDonorsForm find=new FindDonorsForm();
+        ViewHospitalForm find=new ViewHospitalForm();
         find.setVisible(true);
     }//GEN-LAST:event_bBloodInfoActionPerformed
 

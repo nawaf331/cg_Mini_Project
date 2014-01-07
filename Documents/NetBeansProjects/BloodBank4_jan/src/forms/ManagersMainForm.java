@@ -42,11 +42,10 @@ public class ManagersMainForm extends javax.swing.JFrame {
         lNoOfABN = new javax.swing.JLabel();
         bGetDonorInfo = new javax.swing.JButton();
         lWelcome = new javax.swing.JLabel();
-        bRefresh = new javax.swing.JButton();
         bCreateNewUser = new javax.swing.JButton();
         bRegisterHospital = new javax.swing.JButton();
-        bUpdateBloodCost = new javax.swing.JButton();
         bDeleteAccount = new javax.swing.JButton();
+        bRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood bank-manager");
@@ -142,9 +141,6 @@ public class ManagersMainForm extends javax.swing.JFrame {
         lWelcome.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         lWelcome.setText("Welcome, Manager");
 
-        bRefresh.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bRefresh.setText("Refresh");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -168,22 +164,18 @@ public class ManagersMainForm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lNoOfDonors)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bRefresh)
-                                    .addComponent(bGetDonorInfo))))
+                                .addComponent(bGetDonorInfo)))
                         .addGap(33, 33, 33))))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bGetDonorInfo, bGetReceptorInfo, bRefresh});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bGetDonorInfo, bGetReceptorInfo});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lWelcome)
-                .addGap(4, 4, 4)
-                .addComponent(bRefresh)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNoOfDonors)
                     .addComponent(bGetDonorInfo))
@@ -196,7 +188,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bGetDonorInfo, bGetReceptorInfo, bRefresh});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bGetDonorInfo, bGetReceptorInfo});
 
         bCreateNewUser.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bCreateNewUser.setText("Create A New User");
@@ -207,18 +199,10 @@ public class ManagersMainForm extends javax.swing.JFrame {
         });
 
         bRegisterHospital.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bRegisterHospital.setText("Order Blood");
+        bRegisterHospital.setText("Add New Hospital");
         bRegisterHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bRegisterHospitalActionPerformed(evt);
-            }
-        });
-
-        bUpdateBloodCost.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bUpdateBloodCost.setText("Update a blood cost");
-        bUpdateBloodCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bUpdateBloodCostActionPerformed(evt);
             }
         });
 
@@ -227,6 +211,14 @@ public class ManagersMainForm extends javax.swing.JFrame {
         bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDeleteAccountActionPerformed(evt);
+            }
+        });
+
+        bRefresh.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        bRefresh.setText("Refresh");
+        bRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRefreshActionPerformed(evt);
             }
         });
 
@@ -240,9 +232,9 @@ public class ManagersMainForm extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bUpdateBloodCost, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bCreateNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bCreateNewUser, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                            .addComponent(bRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bRegisterHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,7 +242,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bCreateNewUser, bDeleteAccount, bRegisterHospital, bUpdateBloodCost});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bCreateNewUser, bDeleteAccount, bRefresh, bRegisterHospital});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,12 +255,12 @@ public class ManagersMainForm extends javax.swing.JFrame {
                     .addComponent(bRegisterHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bUpdateBloodCost, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bDeleteAccount))
+                    .addComponent(bDeleteAccount)
+                    .addComponent(bRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bCreateNewUser, bDeleteAccount, bRegisterHospital, bUpdateBloodCost});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bCreateNewUser, bDeleteAccount, bRegisterHospital});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -290,18 +282,18 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bGetDonorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetDonorInfoActionPerformed
-        FindDonorsForm donorRecords=new FindDonorsForm();
+        ViewHospitalForm donorRecords=new ViewHospitalForm();
         donorRecords.setVisible(true);
     }//GEN-LAST:event_bGetDonorInfoActionPerformed
 
     private void bGetReceptorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetReceptorInfoActionPerformed
-        FindHospitalForm find=new FindHospitalForm();
+        ViewDonorsForm find=new ViewDonorsForm();
         find.setVisible(true);
     }//GEN-LAST:event_bGetReceptorInfoActionPerformed
 
-    private void bUpdateBloodCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateBloodCostActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bUpdateBloodCostActionPerformed
+    private void bRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRefreshActionPerformed
+        myInitComponnent();
+    }//GEN-LAST:event_bRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,7 +343,6 @@ public class ManagersMainForm extends javax.swing.JFrame {
     private javax.swing.JButton bGetReceptorInfo;
     private javax.swing.JButton bRefresh;
     private javax.swing.JButton bRegisterHospital;
-    private javax.swing.JButton bUpdateBloodCost;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lNoOfABN;
