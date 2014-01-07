@@ -282,12 +282,12 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bGetDonorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetDonorInfoActionPerformed
-        ViewHospitalForm donorRecords=new ViewHospitalForm();
+        FindDonorForm donorRecords=new FindDonorForm();
         donorRecords.setVisible(true);
     }//GEN-LAST:event_bGetDonorInfoActionPerformed
 
     private void bGetReceptorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetReceptorInfoActionPerformed
-        ViewDonorsForm find=new ViewDonorsForm();
+        FindHospitalForm find=new FindHospitalForm();
         find.setVisible(true);
     }//GEN-LAST:event_bGetReceptorInfoActionPerformed
 

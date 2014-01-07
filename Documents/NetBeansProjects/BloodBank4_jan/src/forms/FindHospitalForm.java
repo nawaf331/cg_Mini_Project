@@ -18,10 +18,10 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Administrator
  */
-public class ViewDonorsForm extends javax.swing.JFrame {
+public class FindHospitalForm extends javax.swing.JFrame {
 
     /** Creates new form records */
-    public ViewDonorsForm() {
+    public FindHospitalForm() {
         initComponents();
         setLocation(200, 100);
         initiateComponent();
@@ -224,7 +224,7 @@ public class ViewDonorsForm extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewHospitalForm().setVisible(true);
+                new FindDonorForm().setVisible(true);
             }
         });
     }
