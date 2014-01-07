@@ -16,8 +16,9 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class fillDonorMainPage {
+
     private String lastDonationQuery;
-    PreparedStatement stmt; 
+    PreparedStatement stmt;
     static Connection connection;
     ResultSet rs;
     private java.sql.Date lastDonationDate;
@@ -75,16 +76,16 @@ public class fillDonorMainPage {
     public void setsLastDonationDate(String sLastDonationDate) {
         this.sLastDonationDate = sLastDonationDate;
     }
-    
+
     public String getLastDonationQuery() {
         return lastDonationQuery;
     }
 
     public void fnGetLastDonationDate() {
-        lastDonationQuery="SELECT Donating_date FROM donatesBBM WHERE donor_id = ?";
-        connection=core.DBManager.con;
+        lastDonationQuery = "SELECT Donating_date FROM donatesBBM WHERE donor_id = ?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(getLastDonationQuery());
+            stmt = connection.prepareStatement(getLastDonationQuery());
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,13 +100,12 @@ public class fillDonorMainPage {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()) {
-                lastDonationDate=rs.getDate("donating_date");
+            while (rs.next()) {
+                lastDonationDate = rs.getDate("donating_date");
             }
-            if(lastDonationDate!=null) {
+            if (lastDonationDate != null) {
                 setsLastDonationDate(lastDonationDate.toString());
-            }
-            else {
+            } else {
                 setsLastDonationDate("'Never Before'");
             }
         } catch (SQLException ex) {
@@ -114,10 +114,10 @@ public class fillDonorMainPage {
     }
 
     public void fnGetNameOfTheUser() {
-        nameOfTheUser="SELECT name FROM donorBBM WHERE donor_id = ?";
-        connection=core.DBManager.con;
+        nameOfTheUser = "SELECT name FROM donorBBM WHERE donor_id = ?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(getNameOfTheUser());
+            stmt = connection.prepareStatement(getNameOfTheUser());
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -132,10 +132,10 @@ public class fillDonorMainPage {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()){
-                sNameOftheUser=rs.getString("name");
+            while (rs.next()) {
+                sNameOftheUser = rs.getString("name");
             }
-            if(getsNameOftheUser()== null) {
+            if (getsNameOftheUser() == null) {
                 setsNameOftheUser("User");
             }
         } catch (SQLException ex) {
@@ -144,13 +144,13 @@ public class fillDonorMainPage {
     }
 
     public void fnGetMgrName() {
-        getMgrQuery="SELECT bbm.Emp_name, bb.bname FROM bloodbankmanagerBBM AS bbm, registersBBM AS r, worksforBBM AS w, donorBBM AS d, bloodbankBBM AS bb WHERE ";
-        getMgrQuery=getMgrQuery+"d.Donor_id= ? AND d.Donor_id=r.Donor_id AND r.Bno=w.Bno AND w.Emp_id=bbm.Emp_id";
-        
-        
-        connection=core.DBManager.con;
+        getMgrQuery = "SELECT bbm.Emp_name, bb.bname FROM bloodbankmanagerBBM AS bbm, registersBBM AS r, worksforBBM AS w, donorBBM AS d, bloodbankBBM AS bb WHERE ";
+        getMgrQuery = getMgrQuery + "d.Donor_id= ? AND d.Donor_id=r.Donor_id AND r.Bno=w.Bno AND w.Emp_id=bbm.Emp_id";
+
+
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(getGetMgrQuery());
+            stmt = connection.prepareStatement(getGetMgrQuery());
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -165,17 +165,16 @@ public class fillDonorMainPage {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()){
+            while (rs.next()) {
                 setBBName(rs.getString("bname"));
                 setsNameOfTheMgr(rs.getString("emp_name"));
             }
-            if(getsNameOftheUser()== null) {
-                
+            if (getsNameOftheUser() == null) {
+
                 setsNameOfTheMgr("Admin");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }

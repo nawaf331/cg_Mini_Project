@@ -9,21 +9,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JTable;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author DELL
  */
 public class GetAllDonorInfo {
-    PreparedStatement stmt; 
+
+    PreparedStatement stmt;
     static Connection connection;
     private ResultSet rs;
 
     public ResultSet getRs() {
         return rs;
     }
-    
     private String query;
     private javax.swing.JTable infotable;
 
@@ -32,11 +31,11 @@ public class GetAllDonorInfo {
     }
 
     public void getTableFilled() {
-        
-        query="SELECT name AS NAME, Address AS ADDRESS, Phone_num AS 'PHONE NUMBER' FROM donorBBM";
-        connection=core.DBManager.con;
+
+        query = "SELECT name AS NAME, Address AS ADDRESS, Phone_num AS 'PHONE NUMBER' FROM donorBBM";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             System.out.println("connection error in GetAllDonorInfo");
         }
@@ -45,8 +44,7 @@ public class GetAllDonorInfo {
         } catch (SQLException ex) {
             System.out.println("Execute error in GetAllDonorInfo");
         }
-        
+
         //infotable.setModel(DbUtils.resultSetToTableModel(rs));
     }
-    
 }

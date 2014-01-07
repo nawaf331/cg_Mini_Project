@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package BusinessLogic;
 
 import java.sql.Connection;
@@ -14,6 +13,7 @@ import java.sql.SQLException;
  * @author Administrator
  */
 public class Donor {
+
     String Name;
     int Age;
     String Gender;
@@ -32,7 +32,6 @@ public class Donor {
     }
     int result;
 
-
     public int getAge() {
         return Age;
     }
@@ -50,16 +49,15 @@ public class Donor {
     }
 
     public String getGender() {
-        if(Gender.equals("Male")){
+        if (Gender.equals("Male")) {
             return "M";
-        }
-        else{
+        } else {
             return "f";
         }
     }
 
     public void setGender(String Gender) {
-        if(Gender.equals("Male")) {
+        if (Gender.equals("Male")) {
             this.Gender = "M";
         } else {
             this.Gender = "F";
@@ -82,36 +80,31 @@ public class Donor {
         this.Phone_no = Phone_no;
     }
 
-    
-  
-
     public boolean insertDonor() {
-        result=0;
+        result = 0;
         setInsertDonorSql("INSERT INTO donorBBM VALUES(?,?,?,?,?,?)");
         try {
-            connection=core.DBManager.con;
-            stmt=connection.prepareStatement(getInsertDonorSql());
+            connection = core.DBManager.con;
+            stmt = connection.prepareStatement(getInsertDonorSql());
             System.out.println("UserRegistration.DONOR_ID " + Login.DONOR_ID);
             stmt.setString(1, Login.DONOR_ID); //Static Object
             stmt.setString(2, getName());
             stmt.setString(3, getGender());
-            stmt.setInt(4,getAge());
+            stmt.setInt(4, getAge());
             stmt.setString(5, getAddress());
             stmt.setString(6, getPhone_no());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         try {
-            result=stmt.executeUpdate();
+            result = stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        if(result==1){
+        if (result == 1) {
             return true;
         }
 
         return false;
     }
-
-
-  }
+}

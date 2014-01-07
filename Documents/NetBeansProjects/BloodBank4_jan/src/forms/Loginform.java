@@ -21,8 +21,6 @@ public class Loginform extends javax.swing.JFrame {
         setLocation(200, 100);
         lWarning.setText(null);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +42,12 @@ public class Loginform extends javax.swing.JFrame {
         lPassword = new javax.swing.JLabel();
         tPassword = new javax.swing.JPasswordField();
         lCreateNewAccount = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Quotes = new javax.swing.JLabel();
+        Quotes3 = new javax.swing.JLabel();
+        Quotes2 = new javax.swing.JLabel();
+        Quotes1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Login");
@@ -158,7 +162,7 @@ public class Loginform extends javax.swing.JFrame {
                 .addComponent(lHeading)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
                         .addComponent(lCreateNewAccount)
@@ -166,9 +170,9 @@ public class Loginform extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addGroup(pMainLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMainLayout.createSequentialGroup()
                         .addComponent(lWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(34, 34, 34))))
         );
         pMainLayout.setVerticalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,21 +188,84 @@ public class Loginform extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        Quotes.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        Quotes.setForeground(new java.awt.Color(102, 102, 102));
+        Quotes.setText("You don't have to be ");
+
+        Quotes3.setFont(new java.awt.Font("Ubuntu Light", 0, 14)); // NOI18N
+        Quotes3.setText("It's safe. It's simple. And It saves life :) ");
+
+        Quotes2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        Quotes2.setForeground(java.awt.Color.red);
+        Quotes2.setText("Just Donate Blood");
+
+        Quotes1.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        Quotes1.setForeground(new java.awt.Color(102, 102, 102));
+        Quotes1.setText("a doctor to save Lives.");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blood-drop-icon64.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Quotes)
+                            .addComponent(Quotes1)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel1)))
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(Quotes2)
+                        .addGap(16, 16, 16))
+                    .addComponent(Quotes3))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Quotes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Quotes1)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(Quotes2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Quotes3)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(pMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -230,19 +297,19 @@ public class Loginform extends javax.swing.JFrame {
             login.setEnteredName(username);
             login.setEnteredPassword(password);
             validity = login.isValidLogin();
-           // validity=true;
+            // validity=true;
             if (validity) {
                 lWarning.setText("You are successfully Logged in");
                 Login.setDONOR_ID(username);
                 usertype = login.getUserType();
-               /// usertype=username;
+                /// usertype=username;
                 if (usertype.equals("D")) {
                     DonorsMainForm donormain = new DonorsMainForm();
                     donormain.setVisible(true);
                     this.dispose();
 
                 } else if (usertype.equals("M")) {
-                    ManagersMainForm mgrmain=new ManagersMainForm();
+                    ManagersMainForm mgrmain = new ManagersMainForm();
                     mgrmain.setVisible(true);
                     this.dispose();
                 } else {
@@ -311,9 +378,15 @@ public class Loginform extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Quotes;
+    private javax.swing.JLabel Quotes1;
+    private javax.swing.JLabel Quotes2;
+    private javax.swing.JLabel Quotes3;
     private javax.swing.JButton bReset;
     private javax.swing.JButton bSubmit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lCreateNewAccount;
     private javax.swing.JLabel lHeading;
     private javax.swing.JLabel lPassword;

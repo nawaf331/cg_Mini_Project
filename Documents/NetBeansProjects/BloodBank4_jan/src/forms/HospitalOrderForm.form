@@ -127,7 +127,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lState" pref="26" max="32767" attributes="0"/>
+                      <Component id="lState" max="32767" attributes="0"/>
                       <Component id="comboState" linkSize="4" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -177,6 +177,7 @@
               <Font name="Palatino Linotype" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Quantity"/>
+            <Property name="toolTipText" type="java.lang.String" value="Quanity in packets"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lHospital">
@@ -266,6 +267,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="1" maximum="10" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Quanity in packet"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="bOrder">

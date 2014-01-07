@@ -16,7 +16,8 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class DonateBloodBL {
-    PreparedStatement stmt; 
+
+    PreparedStatement stmt;
     static Connection connection;
     ResultSet rs;
     int result;
@@ -42,7 +43,6 @@ public class DonateBloodBL {
     public void setCode(String code) {
         this.code = code;
     }
-    
 
     public String getQuantityQuery() {
         return quantityQuery;
@@ -51,7 +51,6 @@ public class DonateBloodBL {
     public void setQuantityQuery(String quantityQuery) {
         this.quantityQuery = quantityQuery;
     }
-    
 
     public String getBloodtype() {
         return bloodtype;
@@ -62,10 +61,10 @@ public class DonateBloodBL {
     }
 
     public void incrementBlood() {
-        quantityQuery="select s.quantity, b.code from storesBBM as s, bloodBBM as b where b.Bloodgroup= ? and b.code=s.code";
-        connection=core.DBManager.con;
+        quantityQuery = "select s.quantity, b.code from storesBBM as s, bloodBBM as b where b.Bloodgroup= ? and b.code=s.code";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(getQuantityQuery());
+            stmt = connection.prepareStatement(getQuantityQuery());
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,27 +74,27 @@ public class DonateBloodBL {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            rs=stmt.executeQuery();
+            rs = stmt.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()) {
-                quant=rs.getInt("quantity");
+            while (rs.next()) {
+                quant = rs.getInt("quantity");
                 setCode(rs.getString("code"));
                 System.out.println(quant);
                 System.out.println(getCode());
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonateBloodBL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         quant++;
-        
-        quantityIncrementQuery="UPDATE storesBBM SET Quantity = ? WHERE code=?";
+
+        quantityIncrementQuery = "UPDATE storesBBM SET Quantity = ? WHERE code=?";
         try {
-            stmt=connection.prepareStatement(quantityIncrementQuery);
+            stmt = connection.prepareStatement(quantityIncrementQuery);
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -106,18 +105,18 @@ public class DonateBloodBL {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            result=stmt.executeUpdate();
+            result = stmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void transferBlood() {
-        
-        quantityQuery="select s.quantity, b.code from storesBBM as s, bloodBBM as b where b.Bloodgroup= ? and b.code=s.code";
-        connection=core.DBManager.con;
+
+        quantityQuery = "select s.quantity, b.code from storesBBM as s, bloodBBM as b where b.Bloodgroup= ? and b.code=s.code";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(getQuantityQuery());
+            stmt = connection.prepareStatement(getQuantityQuery());
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -127,27 +126,27 @@ public class DonateBloodBL {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            rs=stmt.executeQuery();
+            rs = stmt.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()) {
-                quant=rs.getInt("quantity");
+            while (rs.next()) {
+                quant = rs.getInt("quantity");
                 setCode(rs.getString("code"));
                 System.out.println(quant);
                 System.out.println(getCode());
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DonateBloodBL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        quant=quant+getBloodCount();
-        
-        quantityIncrementQuery="UPDATE storesBBM SET Quantity = ? WHERE code=?";
+
+        quant = quant + getBloodCount();
+
+        quantityIncrementQuery = "UPDATE storesBBM SET Quantity = ? WHERE code=?";
         try {
-            stmt=connection.prepareStatement(quantityIncrementQuery);
+            stmt = connection.prepareStatement(quantityIncrementQuery);
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -158,10 +157,9 @@ public class DonateBloodBL {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            result=stmt.executeUpdate();
+            result = stmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }

@@ -16,7 +16,7 @@ public class SellBloodForm extends javax.swing.JFrame {
     public SellBloodForm() {
         initComponents();
         setLocation(200, 100);
-       // spinnerQuantity.setm
+        // spinnerQuantity.setm
     }
 
     /**
@@ -144,13 +144,13 @@ public class SellBloodForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bDoneActionPerformed
 
     private void bTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTransferActionPerformed
-        String bloodType=comboBloodGroup.getSelectedItem().toString();
-        int count=Integer.parseInt(spinnerQuantity.getValue().toString());
-        BusinessLogic.DonateBloodBL donate=new BusinessLogic.DonateBloodBL();
+        String bloodType = comboBloodGroup.getSelectedItem().toString();
+        int count = Integer.parseInt(spinnerQuantity.getValue().toString());
+        BusinessLogic.DonateBloodBL donate = new BusinessLogic.DonateBloodBL();
         donate.setBloodCount(count);
         donate.setBloodtype(bloodType);
         donate.transferBlood();
-        comboBloodGroup.setSelectedIndex(0);
+        comboBloodGroup.setSelectedIndex(comboBloodGroup.getSelectedIndex() + 1);
         spinnerQuantity.setValue(1);
     }//GEN-LAST:event_bTransferActionPerformed
 

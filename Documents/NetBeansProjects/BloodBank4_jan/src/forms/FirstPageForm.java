@@ -4,6 +4,8 @@
  */
 package forms;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author DELL
@@ -116,7 +118,7 @@ public class FirstPageForm extends javax.swing.JFrame {
 
         lQuoteSecondline.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lQuoteSecondline.setForeground(java.awt.Color.red);
-        lQuoteSecondline.setText("Saving a Life IS.");
+        lQuoteSecondline.setText("Saving a Life is.");
 
         lBloodBankName.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         lBloodBankName.setForeground(java.awt.Color.red);
@@ -202,9 +204,9 @@ public class FirstPageForm extends javax.swing.JFrame {
                 .addComponent(lQuoteThirdLine)
                 .addGap(25, 25, 25)
                 .addComponent(lTips)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lMisconception)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(lAboutUs)
                 .addContainerGap())
         );
@@ -224,8 +226,8 @@ public class FirstPageForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(28, 28, 28))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -248,7 +250,7 @@ public class FirstPageForm extends javax.swing.JFrame {
     }//GEN-LAST:event_lMisconceptionMouseExited
 
     private void RegisterDonorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterDonorMouseClicked
-        Loginform login=new Loginform();
+        Loginform login = new Loginform();
         login.setVisible(true);
         DonorRegistrationForm createnew = new DonorRegistrationForm();
         createnew.setVisible(true);
@@ -256,18 +258,18 @@ public class FirstPageForm extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterDonorMouseClicked
 
     private void bLoginHereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginHereActionPerformed
-        Loginform login=new Loginform();
+        Loginform login = new Loginform();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bLoginHereActionPerformed
 
     private void lTipsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lTipsMouseClicked
-        DisplayTipsForm dispTips=new DisplayTipsForm();
+        DisplayTipsForm dispTips = new DisplayTipsForm();
         dispTips.setVisible(true);
     }//GEN-LAST:event_lTipsMouseClicked
 
     private void lMisconceptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMisconceptionMouseClicked
-        DisplayMisconceptionForm misconcept=new DisplayMisconceptionForm();
+        DisplayMisconceptionForm misconcept = new DisplayMisconceptionForm();
         misconcept.setVisible(true);
     }//GEN-LAST:event_lMisconceptionMouseClicked
 
@@ -277,12 +279,12 @@ public class FirstPageForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bHospitalOrderActionPerformed
 
     private void bBloodInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBloodInfoActionPerformed
-        FindDonorForm find=new FindDonorForm();
+        FindDonorForm find = new FindDonorForm();
         find.setVisible(true);
     }//GEN-LAST:event_bBloodInfoActionPerformed
 
     private void lAboutUsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lAboutUsMouseClicked
-        About about=new About();
+        About about = new About();
         about.setVisible(true);
     }//GEN-LAST:event_lAboutUsMouseClicked
 
@@ -354,5 +356,6 @@ public class FirstPageForm extends javax.swing.JFrame {
     private void initiateComponents() {
         //textAreaQuotes.setText("Saving the world isn't Easy \nSaving a Life IS. \nDonating 1 Pint of blood can save upto 3 lives.");
         setLocation(200, 100);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("org/icon.png")));
     }
 }

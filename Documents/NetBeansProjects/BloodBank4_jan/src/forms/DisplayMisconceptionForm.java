@@ -17,13 +17,13 @@ public class DisplayMisconceptionForm extends javax.swing.JFrame {
         initComponents();
         setLocation(200, 100);
         //textAreaContent.setColumns(40);
-        textAreaContent.setText("#  You wont feel drained or tired if you continue to drink fluids and have a good meal.\n\n"+
-                "#  You can resume your normal activities after donating blood, though you are asked to\n  refrain from exercise or heavy weight lifting for twelve hours after donation.\n\n"+
-                "#  Donating blood will not leave you low of blood; in fact you will still have surplus blood\n  after the donation.\n\n"+
-                "#  If you choose to consume alcohol, you can on the next day.\n\n"+
-                "#  While donating blood you will not feel any pain.\n\n"+
-                "#  You will not get AIDS if you donate blood.\n\n"+
-                "#  Blood donors donate blood and do not sell it.");
+        textAreaContent.setText("#  You wont feel drained or tired if you continue to drink fluids and have a good meal.\n\n"
+                + "#  You can resume your normal activities after donating blood, though you are asked to\n  refrain from exercise or heavy weight lifting for twelve hours after donation.\n\n"
+                + "#  Donating blood will not leave you low of blood; in fact you will still have surplus blood\n  after the donation.\n\n"
+                + "#  If you choose to consume alcohol, you can on the next day.\n\n"
+                + "#  While donating blood you will not feel any pain.\n\n"
+                + "#  You will not get AIDS if you donate blood.\n\n"
+                + "#  Blood donors donate blood and do not sell it.");
     }
 
     /**

@@ -10,15 +10,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author DELL
  */
 public class fillMgrMainBL {
+
     private String lastDonationQuery;
-    PreparedStatement stmt; 
+    PreparedStatement stmt;
     static Connection connection;
     ResultSet rs;
     private int DonorCount;
@@ -104,7 +104,6 @@ public class fillMgrMainBL {
     public void setOPcount(int OPcount) {
         this.OPcount = OPcount;
     }
-    
 
     public int getHospitalCount() {
         return HospitalCount;
@@ -122,13 +121,12 @@ public class fillMgrMainBL {
         this.DonorCount = DonorCount;
     }
     private String query;
-    
 
     public void getNoOfDonors() {
-        query="select count(donor_id) from registersbbm";
-        connection=core.DBManager.con;
+        query = "select count(donor_id) from registersbbm";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -138,8 +136,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                DonorCount=rs.getInt("count(donor_id)");
+            if (rs.next()) {
+                DonorCount = rs.getInt("count(donor_id)");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,10 +145,10 @@ public class fillMgrMainBL {
     }
 
     public void getNoOfHospitals() {
-        query="select count(Name) from hospitalBBM";
-        connection=core.DBManager.con;
+        query = "select count(Name) from hospitalBBM";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -160,8 +158,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                HospitalCount=rs.getInt("count(Name)");
+            if (rs.next()) {
+                HospitalCount = rs.getInt("count(Name)");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,10 +178,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfAP() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -198,20 +196,20 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                APcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                APcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void getCountOfAN() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -226,8 +224,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                ANcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                ANcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -235,10 +233,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfBP() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -253,8 +251,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                BPcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                BPcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -262,10 +260,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfBN() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -280,8 +278,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                BNcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                BNcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -289,10 +287,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfOP() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -307,8 +305,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                OPcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                OPcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -316,10 +314,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfABP() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -334,8 +332,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                ABPcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                ABPcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -343,10 +341,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfABN() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -361,8 +359,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                ABNcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                ABNcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -370,10 +368,10 @@ public class fillMgrMainBL {
     }
 
     private void getCountOfON() {
-        query="select Quantity from storesBBM where Code=?";
-        connection=core.DBManager.con;
+        query = "select Quantity from storesBBM where Code=?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -388,8 +386,8 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            if(rs.next()){
-                ONcount=rs.getInt("Quantity");
+            if (rs.next()) {
+                ONcount = rs.getInt("Quantity");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillMgrMainBL.class.getName()).log(Level.SEVERE, null, ex);
@@ -397,11 +395,11 @@ public class fillMgrMainBL {
     }
 
     public void getNameOfTheMgr() {
-         
-        query="SELECT emp_name FROM bloodbankmanagerBBM WHERE Emp_id = ?";
-        connection=core.DBManager.con;
+
+        query = "SELECT emp_name FROM bloodbankmanagerBBM WHERE Emp_id = ?";
+        connection = core.DBManager.con;
         try {
-            stmt=connection.prepareStatement(query);
+            stmt = connection.prepareStatement(query);
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -416,15 +414,14 @@ public class fillMgrMainBL {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            while(rs.next()){
-                sNameOftheMgr=rs.getString("Emp_name");
+            while (rs.next()) {
+                sNameOftheMgr = rs.getString("Emp_name");
             }
-            if(getsNameOftheMgr()== null) {
+            if (getsNameOftheMgr() == null) {
                 setsNameOftheMgr("Manager");
             }
         } catch (SQLException ex) {
             Logger.getLogger(fillDonorMainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }

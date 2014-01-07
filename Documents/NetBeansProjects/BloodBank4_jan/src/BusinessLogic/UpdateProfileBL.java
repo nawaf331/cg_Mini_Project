@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package BusinessLogic;
 
 import java.sql.Connection;
@@ -10,21 +9,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 /**
  *
  * @author Administrator
  */
 public class UpdateProfileBL {
-static Connection connection;
-PreparedStatement stmt;
-ResultSet rs;
-String username;
-String name;
-String phone_no;
-String address;
-String SelectInfoSql;
+
+    static Connection connection;
+    PreparedStatement stmt;
+    ResultSet rs;
+    String username;
+    String name;
+    String phone_no;
+    String address;
+    String SelectInfoSql;
 
     public String getAddress() {
         return address;
@@ -65,20 +63,21 @@ String SelectInfoSql;
     public void setUsername(String username) {
         this.username = username;
     }
+
     public void fnGetUserProfile() {
-        SelectInfoSql="select * from DonorBBM where Donor_id= ? ";
+        SelectInfoSql = "select * from DonorBBM where Donor_id= ? ";
         try {
             connection = core.DBManager.con;
             stmt = connection.prepareStatement(getSelectInfoSql());
             stmt.setString(1, Login.DONOR_ID);
-             } catch (SQLException ex) {
-          System.out.println(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
         try {
-                rs = stmt.executeQuery();
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            rs = stmt.executeQuery();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
         try {
             while (rs.next()) {
                 setUsername(rs.getString("Donor_id"));
@@ -89,7 +88,6 @@ String SelectInfoSql;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
-    }
 
+    }
 }

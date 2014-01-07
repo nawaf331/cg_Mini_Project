@@ -10,11 +10,6 @@
  */
 package forms;
 
-import javax.swing.JTable;
-import javax.swing.RowFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -23,13 +18,12 @@ import net.proteanit.sql.DbUtils;
  */
 public class FindDonorForm extends javax.swing.JFrame {
 
-
     /**
      * Creates new form records
      */
     public FindDonorForm() {
         initComponents();
-        setLocation(200, 100);
+        setLocation(200, 130);
         initiateComponent();
     }
 
@@ -52,13 +46,15 @@ public class FindDonorForm extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDonorname = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        lHeading = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        comboBlood = new javax.swing.JComboBox();
         comboStateSelection = new javax.swing.JComboBox();
         tCity = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        tBloodGroup = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tState = new javax.swing.JLabel();
         bGetinfo = new javax.swing.JButton();
-        lHeading = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood Management-Find Donors");
@@ -75,7 +71,7 @@ public class FindDonorForm extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Hospital name", "Address", "Phone No."
+                "Donor name", "Address", "Phone No."
             }
         ) {
             Class[] types = new Class [] {
@@ -93,21 +89,35 @@ public class FindDonorForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableDonorname.setColumnSelectionAllowed(true);
+        tableDonorname.setCellSelectionEnabled(true);
         tableDonorname.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tableDonorname);
         tableDonorname.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        lHeading.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        lHeading.setText("Donor Info");
+
+        comboBlood.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        comboBlood.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "A+", "A-", "AB+", "AB-", "O+", "O-", "B+", "B-" }));
+        comboBlood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBloodActionPerformed(evt);
+            }
+        });
 
         comboStateSelection.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         comboStateSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Karnataka", "Kerala", "Tamil Nadu", "Maharashtra" }));
 
         tCity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        jLabel1.setText("City");
+        tBloodGroup.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tBloodGroup.setText("Blood Group");
 
-        jLabel3.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        jLabel3.setText("State");
+        jLabel4.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        jLabel4.setText("City");
+
+        tState.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tState.setText("State");
 
         bGetinfo.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bGetinfo.setText("Search");
@@ -117,47 +127,51 @@ public class FindDonorForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboStateSelection, 0, 1, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tCity, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(22, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(bGetinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(tState))
+                                .addGap(52, 52, 52))
+                            .addComponent(tBloodGroup, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tCity)
+                            .addComponent(comboStateSelection, javax.swing.GroupLayout.Alignment.TRAILING, 0, 1, Short.MAX_VALUE)
+                            .addComponent(comboBlood, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 68, Short.MAX_VALUE)
+                        .addComponent(bGetinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboStateSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(tState))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBlood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tBloodGroup))
                 .addGap(18, 18, 18)
                 .addComponent(bGetinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addContainerGap())
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboStateSelection, tCity});
-
-        lHeading.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        lHeading.setText("Hospital Info");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,13 +180,13 @@ public class FindDonorForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(lHeading)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -183,9 +197,9 @@ public class FindDonorForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lHeading)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
@@ -195,17 +209,12 @@ public class FindDonorForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBloodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBloodActionPerformed
+
     private void bGetinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetinfoActionPerformed
-        String text = tCity.getText();
-        DefaultTableModel model = new DefaultTableModel();
-        TableRowSorter sorter = new TableRowSorter<TableModel>(model);
-        tableDonorname = new JTable(model);
-        tableDonorname.setRowSorter(sorter);
-        if (text.length() == 0) {
-            sorter.setRowFilter(null);
-        } else {
-            sorter.setRowFilter(RowFilter.regexFilter("(?i)^" + text, 0));
-        }
+//        JOptionPane.showConfirmDialog(this, "not done");
     }//GEN-LAST:event_bGetinfoActionPerformed
 
     /**
@@ -221,13 +230,15 @@ public class FindDonorForm extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bGetinfo;
+    private javax.swing.JComboBox comboBlood;
     private javax.swing.JComboBox comboStateSelection;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lHeading;
+    private javax.swing.JLabel tBloodGroup;
     private javax.swing.JTextField tCity;
+    private javax.swing.JLabel tState;
     private javax.swing.JTable tableDonorname;
     // End of variables declaration//GEN-END:variables
 }

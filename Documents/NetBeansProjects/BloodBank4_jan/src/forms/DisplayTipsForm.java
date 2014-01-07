@@ -16,10 +16,10 @@ public class DisplayTipsForm extends javax.swing.JFrame {
     public DisplayTipsForm() {
         initComponents();
         setLocation(200, 100);
-        textAreaContent.setText("#  Please have a good meal at least 3 hours before donating blood.\n\n"+
-                "#  Please accept the snacks offered to you after the donation,\n   it is vital you have them. You are recommended to have a good meal later.\n\n"+
-                "#  Please avoid smoking on the day before donating.\n   You can smoke 3 hours after donation.\n\n"+
-                "#  You will not be eligible to donate blood if you have\n   consumed alcohol 48 hours before donation.\n");
+        textAreaContent.setText("#  Please have a good meal at least 3 hours before donating blood.\n\n"
+                + "#  Please accept the snacks offered to you after the donation,\n   it is vital you have them. You are recommended to have a good meal later.\n\n"
+                + "#  Please avoid smoking on the day before donating.\n   You can smoke 3 hours after donation.\n\n"
+                + "#  You will not be eligible to donate blood if you have\n   consumed alcohol 48 hours before donation.\n");
     }
 
     /**
@@ -42,7 +42,7 @@ public class DisplayTipsForm extends javax.swing.JFrame {
 
         textAreaContent.setColumns(20);
         textAreaContent.setEditable(false);
-        textAreaContent.setFont(new java.awt.Font("Segoe UI Symbol", 1, 13)); // NOI18N
+        textAreaContent.setFont(new java.awt.Font("Segoe UI Symbol", 0, 13)); // NOI18N
         textAreaContent.setRows(5);
         jScrollPane1.setViewportView(textAreaContent);
 

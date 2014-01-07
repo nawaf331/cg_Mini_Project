@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package forms;
 
-import BusinessLogic.HospitalOrderBL;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +20,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
         initComponents();
         setLocation(200, 100);
         tHospital.requestFocus();
-        
+
     }
 
     /**
@@ -67,6 +66,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
 
         lQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lQuantity.setText("Quantity");
+        lQuantity.setToolTipText("Quanity in packets");
 
         lHospital.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lHospital.setText("Hospital Name");
@@ -95,6 +95,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
 
         spinnerQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         spinnerQuantity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        spinnerQuantity.setToolTipText("Quanity in packet");
 
         bOrder.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bOrder.setText("Order");
@@ -179,7 +180,7 @@ public class HospitalOrderForm extends javax.swing.JFrame {
                     .addComponent(tCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lState, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(lState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboState))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -244,18 +245,21 @@ public class HospitalOrderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bResetActionPerformed
 
     private void bOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOrderActionPerformed
-        BusinessLogic.HospitalOrderBL order=new BusinessLogic.HospitalOrderBL();
-        order.getMeBlood();
+        JOptionPane.showConfirmDialog(this, "Your request is accepted. thank you", "Accepted", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bOrderActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /*
+         * Set the Nimbus look and feel
+         */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -275,14 +279,16 @@ public class HospitalOrderForm extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /*
+         * Create and display the form
+         */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new HospitalOrderForm().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCancel;
     private javax.swing.JButton bOrder;

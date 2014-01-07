@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package BusinessLogic;
 
 import java.sql.Connection;
@@ -16,17 +15,16 @@ import java.sql.Statement;
  * @author Administrator
  */
 public class Login {
-    
+
     static String DONOR_ID;
     static Connection connection;
 
     public static void setDONOR_ID(String username) {
-        DONOR_ID=username;
+        DONOR_ID = username;
     }
     Statement stmt;
     ResultSet rs;
     String sql;
-    
     private String EnteredName;
     private String EnteredPassword;
     private String userType;
@@ -38,7 +36,7 @@ public class Login {
     public void setUserType(String userType) {
         this.userType = userType;
     }
-    
+
     public String getEnteredName() {
         return EnteredName;
     }
@@ -54,38 +52,35 @@ public class Login {
     public void setEnteredPassword(String EnteredPassword) {
         this.EnteredPassword = EnteredPassword;
     }
-    
 
     public boolean isValidLogin() {
-        sql="SELECT * FROM loginBBM";
+        sql = "SELECT * FROM loginBBM";
         //core.DBManager connector=new core.DBManager();\
-        connection=core.DBManager.con;
+        connection = core.DBManager.con;
         try {
-            stmt=connection.createStatement();
+            stmt = connection.createStatement();
         } catch (SQLException ex) {
-            System.out.println("Login.java -> createStatement-> "+ ex.getMessage());
-        } 
-        try {
-            rs=stmt.executeQuery(sql);
-        } catch (SQLException ex) {
-            System.out.println("Login.java -> executeQuery -> " +ex.getMessage());
+            System.out.println("Login.java -> createStatement-> " + ex.getMessage());
         }
         try {
-            while(rs.next()) {
-                String user=rs.getString("username");
-                String pass=rs.getString("password");
-                
-                if(getEnteredName().equals(user) && getEnteredPassword().equals(pass)){
-                    String type=rs.getString("usertype");
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            System.out.println("Login.java -> executeQuery -> " + ex.getMessage());
+        }
+        try {
+            while (rs.next()) {
+                String user = rs.getString("username");
+                String pass = rs.getString("password");
+
+                if (getEnteredName().equals(user) && getEnteredPassword().equals(pass)) {
+                    String type = rs.getString("usertype");
                     setUserType(type);
                     return true;
                 }
             }
         } catch (SQLException ex) {
-            System.out.println("Login.java -> rs.next() in while -> "+ex.getMessage());
+            System.out.println("Login.java -> rs.next() in while -> " + ex.getMessage());
         }
         return false;
     }
-    
-    
 }

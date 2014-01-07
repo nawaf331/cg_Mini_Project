@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author DELL
  */
 public class DonorsMainForm extends javax.swing.JFrame {
-    
+
     private String lastDonation;
     String[] splitDate;
     private String nextDonation;
@@ -24,7 +24,6 @@ public class DonorsMainForm extends javax.swing.JFrame {
     private void setLastDonation(String lastDonation) {
         this.lastDonation = lastDonation;
     }
-    
 
     /**
      * Creates new form DonorsMainForm
@@ -32,28 +31,35 @@ public class DonorsMainForm extends javax.swing.JFrame {
     public DonorsMainForm() {
         initComponents();
         initiateComponents();
-        
+
     }
-    
+
     private void initiateComponents() {
         setLocation(200, 100);
         lWarning.setText(null);
-        BusinessLogic.fillDonorMainPage fillPage=new BusinessLogic.fillDonorMainPage();
+        BusinessLogic.fillDonorMainPage fillPage = new BusinessLogic.fillDonorMainPage();
         fillPage.fnGetLastDonationDate();
         setLastDonation(fillPage.getsLastDonationDate());
         lLastBloodDonation.setText("Your Last Blood donation was on : " + getLastDonation());
-        splitDate=lastDonation.split("-");
-        System.out.println(splitDate[0]);
-        System.out.println(splitDate[1]);
-        System.out.println(splitDate[2]);
-        nextDonation=getNextDate();
-        lNextBloodDonation.setText("You may Donate Blood on : "+nextDonation);
+        if (getLastDonation().equals("'Never Before'")) {
+            nextDonation = "Today";
+        } else {
+            splitDate = lastDonation.split("-");
+            System.out.println(splitDate[0]);
+            System.out.println(splitDate[1]);
+            System.out.println(splitDate[2]);
+            nextDonation = getNextDate();
+        }
+        lNextBloodDonation.setText("You may Donate Blood on : " + nextDonation);
         fillPage.fnGetNameOfTheUser();
         lWelcome.setText("Welcome, " + fillPage.getsNameOftheUser());
-        
+
         fillPage.fnGetMgrName();
-        lRegisteredWith.setText("You are registered with : "+ fillPage.getBBName()+ " ( "+ fillPage.getsNameOfTheMgr() + ")");
-        
+        if (fillPage.getBBName() != null && fillPage.getsNameOfTheMgr() != null) {
+            lRegisteredWith.setText("You are registered with : " + fillPage.getBBName() + " ( " + fillPage.getsNameOfTheMgr() + ")");
+        } else {
+            lRegisteredWith.setText("You are registered with : Main Branch ");
+        }
     }
 
     /**
@@ -74,12 +80,12 @@ public class DonorsMainForm extends javax.swing.JFrame {
         bDonateCash = new javax.swing.JButton();
         bSellBlood = new javax.swing.JButton();
         bRefresh = new javax.swing.JButton();
-        lWarning = new javax.swing.JLabel();
         innerPanel = new javax.swing.JPanel();
         lRegisteredWith = new javax.swing.JLabel();
         bRemindMe = new javax.swing.JButton();
         lNextBloodDonation = new javax.swing.JLabel();
         lLastBloodDonation = new javax.swing.JLabel();
+        lWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank - Registered User");
@@ -105,7 +111,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         });
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bDeleteAccount.setText("Delete My Account");
+        bDeleteAccount.setText("Delete Account");
         bDeleteAccount.setToolTipText("");
         bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +164,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(bDeleteAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bSellBlood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(bSellBlood, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
         );
 
@@ -184,10 +190,6 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
         buttonpanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bDeleteAccount, bDonateBlood, bDonateCash, bViewProfile});
 
-        lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lWarning.setForeground(java.awt.Color.blue);
-        lWarning.setText("lwarning");
-
         lRegisteredWith.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lRegisteredWith.setText("You are registered with : ");
 
@@ -201,11 +203,11 @@ public class DonorsMainForm extends javax.swing.JFrame {
         });
 
         lNextBloodDonation.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lNextBloodDonation.setForeground(java.awt.Color.blue);
+        lNextBloodDonation.setForeground(new java.awt.Color(0, 204, 0));
         lNextBloodDonation.setText("You may Donate Blood on : ");
 
         lLastBloodDonation.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lLastBloodDonation.setForeground(new java.awt.Color(0, 0, 255));
+        lLastBloodDonation.setForeground(new java.awt.Color(0, 204, 0));
         lLastBloodDonation.setText("Your Last Blood Donation was on :");
 
         javax.swing.GroupLayout innerPanelLayout = new javax.swing.GroupLayout(innerPanel);
@@ -244,11 +246,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(OuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(OuterPanelLayout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(lWarning))))
+                    .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         OuterPanelLayout.setVerticalGroup(
@@ -258,23 +256,27 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lWarning)
                 .addContainerGap())
         );
+
+        lWarning.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        lWarning.setForeground(java.awt.Color.blue);
+        lWarning.setText("lwarning");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
             .addGroup(layout.createSequentialGroup()
                 .addGap(183, 183, 183)
                 .addComponent(lWelcome)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lWarning)
+                    .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,56 +284,58 @@ public class DonorsMainForm extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(lWelcome)
                 .addGap(18, 18, 18)
-                .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
+                .addComponent(OuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lWarning)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bRemindMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemindMeActionPerformed
-        JOptionPane.showConfirmDialog(this, "Notification Will be Sent to you on time","Information",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showConfirmDialog(this, "Notification Will be Sent to you on time", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bRemindMeActionPerformed
 
     private void bDonateCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateCashActionPerformed
-        JOptionPane.showConfirmDialog(this, "We do not have any online payment option.\nYou may pay manager directly","Thank You",JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showConfirmDialog(this, "We do not have any online payment option.\nYou may pay manager directly", "Thank You", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bDonateCashActionPerformed
 
     private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
         int confirmation;
-        confirmation=JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        confirmation = JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         System.out.println(confirmation);
-        if(confirmation==0){
-            BusinessLogic.DeleteUser deletednr=new DeleteUser();
+        if (confirmation == 0) {
+            BusinessLogic.DeleteUser deletednr = new DeleteUser();
             deletednr.deleteDonor();
             this.dispose();
         }
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViewProfileActionPerformed
-        DonorUpdateform updateform=new DonorUpdateform();
+        DonorUpdateform updateform = new DonorUpdateform();
         updateform.setVisible(true);
     }//GEN-LAST:event_bViewProfileActionPerformed
 
     private void bDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateBloodActionPerformed
         Object[] possibilities = {"A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-"};
-        String s = (String)JOptionPane.showInputDialog(
-                    this,
-                    "Select Blood Group\n",
-                    "Select Blood",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    possibilities,
-                    "Blood Groups");
+        String s = (String) JOptionPane.showInputDialog(
+                this,
+                "Select Blood Group\n",
+                "Select Blood",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                possibilities,
+                "Blood Groups");
         System.out.println(s);
-        BusinessLogic.DonateBloodBL donate=new BusinessLogic.DonateBloodBL();
+        BusinessLogic.DonateBloodBL donate = new BusinessLogic.DonateBloodBL();
         donate.setBloodtype(s);
         donate.incrementBlood();
         lWarning.setText("Blood donation is registered");
     }//GEN-LAST:event_bDonateBloodActionPerformed
 
     private void bSellBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSellBloodActionPerformed
-        SellBloodForm sell=new SellBloodForm();
+        SellBloodForm sell = new SellBloodForm();
         sell.setVisible(true);
     }//GEN-LAST:event_bSellBloodActionPerformed
 
@@ -402,14 +406,14 @@ public class DonorsMainForm extends javax.swing.JFrame {
         int year;
         int month;
         int nextMonth;
-        year=Integer.parseInt(splitDate[0]);
-        month=Integer.parseInt(splitDate[1]);
-        nextMonth=month+3;
-        if(nextMonth>11){
+        year = Integer.parseInt(splitDate[0]);
+        month = Integer.parseInt(splitDate[1]);
+        nextMonth = month + 3;
+        if (nextMonth > 11) {
             year++;
-            nextMonth=nextMonth-12;
+            nextMonth = nextMonth - 12;
         }
-        nextDonation=Integer.toString(year)+"-"+Integer.toString(nextMonth)+"-"+splitDate[2];
+        nextDonation = Integer.toString(year) + "-" + Integer.toString(nextMonth) + "-" + splitDate[2];
         return nextDonation;
     }
 }

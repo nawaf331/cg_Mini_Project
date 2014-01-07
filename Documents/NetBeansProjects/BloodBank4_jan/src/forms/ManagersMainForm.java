@@ -266,28 +266,30 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCreateNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCreateNewUserActionPerformed
-        DonorRegistrationForm donorRegister=new DonorRegistrationForm();
+        DonorRegistrationForm donorRegister = new DonorRegistrationForm();
         donorRegister.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_bCreateNewUserActionPerformed
 
     private void bRegisterHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegisterHospitalActionPerformed
-        HospitalOrderForm hospitalRegister=new HospitalOrderForm();
+        HospitalOrderForm hospitalRegister = new HospitalOrderForm();
         hospitalRegister.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_bRegisterHospitalActionPerformed
 
     private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
-       this.dispose();
+        FirstPageForm first = new FirstPageForm();
+        first.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bGetDonorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetDonorInfoActionPerformed
-        FindDonorForm donorRecords=new FindDonorForm();
+        FindDonorForm donorRecords = new FindDonorForm();
         donorRecords.setVisible(true);
     }//GEN-LAST:event_bGetDonorInfoActionPerformed
 
     private void bGetReceptorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetReceptorInfoActionPerformed
-        FindHospitalForm find=new FindHospitalForm();
+        FindHospitalForm find = new FindHospitalForm();
         find.setVisible(true);
     }//GEN-LAST:event_bGetReceptorInfoActionPerformed
 
@@ -360,21 +362,21 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
     private void myInitComponnent() {
         setLocation(200, 100);
-        BusinessLogic.fillMgrMainBL fillPage=new BusinessLogic.fillMgrMainBL();
+        BusinessLogic.fillMgrMainBL fillPage = new BusinessLogic.fillMgrMainBL();
         fillPage.getNoOfDonors();
         fillPage.getNoOfHospitals();
         fillPage.getEachBloodData();
         fillPage.getNameOfTheMgr();
-        lWelcome.setText("Welcome, "+fillPage.getsNameOftheMgr());
-        lNoOfDonors.setText("You have "+Integer.toString(fillPage.getDonorCount())+" donors registered under you");
-        lNoOfReceptors.setText("You have "+Integer.toString(fillPage.getHospitalCount())+" Registered");
-        lNoOfAP.setText("No. of A+   : "+Integer.toString(fillPage.getAPcount()));
-        lNoOfAN.setText("No. of A-   : "+Integer.toString(fillPage.getANcount()));
-        lNoOfBP.setText("No. of B+   : "+Integer.toString(fillPage.getBPcount()));
-        lNoOfBN.setText("No. of B-   : "+Integer.toString(fillPage.getBNcount()));
-        lNoOfOP.setText("No. of O+   : "+Integer.toString(fillPage.getOPcount()));
-        lNoOfON.setText("No. of O-   : "+Integer.toString(fillPage.getONcount()));
-        lNoOfABP.setText("No. of AB+ : "+Integer.toString(fillPage.getABPcount()));
-        lNoOfABN.setText("No. of AB- : "+Integer.toString(fillPage.getABNcount()));
+        lWelcome.setText("Welcome, " + fillPage.getsNameOftheMgr());
+        lNoOfDonors.setText("You have " + Integer.toString(fillPage.getDonorCount()) + " donors registered under you");
+        lNoOfReceptors.setText("You have " + Integer.toString(fillPage.getHospitalCount()) + " Registered");
+        lNoOfAP.setText("No. of A+   : " + Integer.toString(fillPage.getAPcount()));
+        lNoOfAN.setText("No. of A-   : " + Integer.toString(fillPage.getANcount()));
+        lNoOfBP.setText("No. of B+   : " + Integer.toString(fillPage.getBPcount()));
+        lNoOfBN.setText("No. of B-   : " + Integer.toString(fillPage.getBNcount()));
+        lNoOfOP.setText("No. of O+   : " + Integer.toString(fillPage.getOPcount()));
+        lNoOfON.setText("No. of O-   : " + Integer.toString(fillPage.getONcount()));
+        lNoOfABP.setText("No. of AB+ : " + Integer.toString(fillPage.getABPcount()));
+        lNoOfABN.setText("No. of AB- : " + Integer.toString(fillPage.getABNcount()));
     }
 }
