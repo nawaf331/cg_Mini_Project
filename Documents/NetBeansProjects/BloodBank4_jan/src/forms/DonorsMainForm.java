@@ -322,12 +322,12 @@ public class DonorsMainForm extends javax.swing.JFrame {
                     JOptionPane.PLAIN_MESSAGE,
                     null,
                     possibilities,
-                    "ham");
+                    "Blood Groups");
         System.out.println(s);
         BusinessLogic.DonateBloodBL donate=new BusinessLogic.DonateBloodBL();
         donate.setBloodtype(s);
         donate.incrementBlood();
-        
+        lWarning.setText("Blood donation is registered");
     }//GEN-LAST:event_bDonateBloodActionPerformed
 
     private void bSellBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSellBloodActionPerformed

@@ -61,7 +61,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
         });
 
         lNoOfReceptors.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lNoOfReceptors.setText("You have m receptors");
+        lNoOfReceptors.setText("You have m Hospitals");
 
         lNoOfDonors.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lNoOfDonors.setText("You have n donors registered under you");
@@ -216,6 +216,11 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
         bUpdateBloodCost.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bUpdateBloodCost.setText("Update a blood cost");
+        bUpdateBloodCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUpdateBloodCostActionPerformed(evt);
+            }
+        });
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bDeleteAccount.setText("Logout");
@@ -290,8 +295,13 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bGetDonorInfoActionPerformed
 
     private void bGetReceptorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetReceptorInfoActionPerformed
-        // TODO add your handling code here:
+        FindHospitalForm find=new FindHospitalForm();
+        find.setVisible(true);
     }//GEN-LAST:event_bGetReceptorInfoActionPerformed
+
+    private void bUpdateBloodCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateBloodCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bUpdateBloodCostActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,5 +373,17 @@ public class ManagersMainForm extends javax.swing.JFrame {
         fillPage.getNoOfDonors();
         fillPage.getNoOfHospitals();
         fillPage.getEachBloodData();
+        fillPage.getNameOfTheMgr();
+        lWelcome.setText("Welcome, "+fillPage.getsNameOftheMgr());
+        lNoOfDonors.setText("You have "+Integer.toString(fillPage.getDonorCount())+" donors registered under you");
+        lNoOfReceptors.setText("You have "+Integer.toString(fillPage.getHospitalCount())+" Registered");
+        lNoOfAP.setText("No. of A+   : "+Integer.toString(fillPage.getAPcount()));
+        lNoOfAN.setText("No. of A-   : "+Integer.toString(fillPage.getANcount()));
+        lNoOfBP.setText("No. of B+   : "+Integer.toString(fillPage.getBPcount()));
+        lNoOfBN.setText("No. of B-   : "+Integer.toString(fillPage.getBNcount()));
+        lNoOfOP.setText("No. of O+   : "+Integer.toString(fillPage.getOPcount()));
+        lNoOfON.setText("No. of O-   : "+Integer.toString(fillPage.getONcount()));
+        lNoOfABP.setText("No. of AB+ : "+Integer.toString(fillPage.getABPcount()));
+        lNoOfABN.setText("No. of AB- : "+Integer.toString(fillPage.getABNcount()));
     }
 }
