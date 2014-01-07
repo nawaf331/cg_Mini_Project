@@ -4,6 +4,8 @@
  */
 package forms;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author DELL
@@ -362,6 +364,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
 
     private void myInitComponnent() {
         setLocation(200, 100);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../resources/icon.png")));
         BusinessLogic.fillMgrMainBL fillPage = new BusinessLogic.fillMgrMainBL();
         fillPage.getNoOfDonors();
         fillPage.getNoOfHospitals();

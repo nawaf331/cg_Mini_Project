@@ -5,6 +5,7 @@
 package forms;
 
 import BusinessLogic.DeleteUser;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,6 +37,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
     private void initiateComponents() {
         setLocation(200, 100);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../resources/icon.png")));
         lWarning.setText(null);
         BusinessLogic.fillDonorMainPage fillPage = new BusinessLogic.fillDonorMainPage();
         fillPage.fnGetLastDonationDate();
