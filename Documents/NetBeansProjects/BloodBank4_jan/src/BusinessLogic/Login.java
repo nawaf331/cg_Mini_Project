@@ -57,7 +57,7 @@ public class Login {
     
 
     public boolean isValidLogin() {
-        sql="SELECT * FROM login";
+        sql="SELECT * FROM loginBBM";
         //core.DBManager connector=new core.DBManager();\
         connection=core.DBManager.con;
         try {

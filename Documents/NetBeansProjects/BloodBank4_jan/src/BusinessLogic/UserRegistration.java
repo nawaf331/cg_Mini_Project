@@ -86,7 +86,7 @@ public class UserRegistration {
 
     public boolean fnToInsertUser() {
         result=0;
-        setInsertUserInfoSql("INSERT INTO Login VALUES(?,?,?)");
+        setInsertUserInfoSql("INSERT INTO LoginBBM VALUES(?,?,?)");
         
         try {
             connection=core.DBManager.con;

@@ -4,9 +4,6 @@
  */
 package forms;
 
-import BusinessLogic.DeleteUser;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author DELL
@@ -210,7 +207,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
         });
 
         bRegisterHospital.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bRegisterHospital.setText("Register Hospital");
+        bRegisterHospital.setText("Order Blood");
         bRegisterHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bRegisterHospitalActionPerformed(evt);
@@ -221,7 +218,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
         bUpdateBloodCost.setText("Update a blood cost");
 
         bDeleteAccount.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        bDeleteAccount.setText("I Quit The Job");
+        bDeleteAccount.setText("Logout");
         bDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bDeleteAccountActionPerformed(evt);
@@ -284,14 +281,7 @@ public class ManagersMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bRegisterHospitalActionPerformed
 
     private void bDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteAccountActionPerformed
-        int confirmation;
-        confirmation=JOptionPane.showConfirmDialog(this, "Are you Sure ?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        System.out.println(confirmation);
-        if(confirmation==0){
-            BusinessLogic.DeleteUser deletemgr=new DeleteUser();
-            deletemgr.deletemgr();
-            this.dispose();
-        }
+       this.dispose();
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bGetDonorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGetDonorInfoActionPerformed

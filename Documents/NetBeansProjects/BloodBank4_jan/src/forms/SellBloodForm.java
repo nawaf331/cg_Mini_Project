@@ -28,7 +28,7 @@ public class SellBloodForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lHeading = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         bTransfer = new javax.swing.JButton();
         lQuantity = new javax.swing.JLabel();
@@ -42,11 +42,16 @@ public class SellBloodForm extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Transfer Blood in Bulks");
+        lHeading.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lHeading.setText("Transfer Blood in Bulks");
 
         bTransfer.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bTransfer.setText("Transfer");
+        bTransfer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTransferActionPerformed(evt);
+            }
+        });
 
         lQuantity.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lQuantity.setText("Quantity");
@@ -118,14 +123,14 @@ public class SellBloodForm extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel1)
+                .addComponent(lHeading)
                 .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
@@ -137,6 +142,17 @@ public class SellBloodForm extends javax.swing.JFrame {
     private void bDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDoneActionPerformed
         this.dispose();
     }//GEN-LAST:event_bDoneActionPerformed
+
+    private void bTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTransferActionPerformed
+        String bloodType=comboBloodGroup.getSelectedItem().toString();
+        int count=Integer.parseInt(spinnerQuantity.getValue().toString());
+        BusinessLogic.DonateBloodBL donate=new BusinessLogic.DonateBloodBL();
+        donate.setBloodCount(count);
+        donate.setBloodtype(bloodType);
+        donate.transferBlood();
+        comboBloodGroup.setSelectedIndex(0);
+        spinnerQuantity.setValue(1);
+    }//GEN-LAST:event_bTransferActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,9 +199,9 @@ public class SellBloodForm extends javax.swing.JFrame {
     private javax.swing.JButton bDone;
     private javax.swing.JButton bTransfer;
     private javax.swing.JComboBox comboBloodGroup;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lBloodGroup;
+    private javax.swing.JLabel lHeading;
     private javax.swing.JLabel lQuantity;
     private javax.swing.JSpinner spinnerQuantity;
     // End of variables declaration//GEN-END:variables

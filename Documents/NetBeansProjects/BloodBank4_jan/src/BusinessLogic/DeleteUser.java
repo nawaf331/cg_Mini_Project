@@ -35,7 +35,7 @@ public class DeleteUser {
     int result;
 
     public void deletemgr() {
-        deleteMgrQuery="DELETE FROM bloodbankmanager WHERE emp_id = ?";
+        deleteMgrQuery="DELETE FROM bloodbankmanagerBBM WHERE emp_id = ?";
         connection=core.DBManager.con;
         try {
             stmt=connection.prepareStatement(getDeleteMgrQuery());
@@ -57,7 +57,7 @@ public class DeleteUser {
     public void deleteDonor() {
         System.out.println("Login.DONOR_ID"+Login.DONOR_ID);
         connection=core.DBManager.con;
-        deleteDonorQuery="DELETE FROM donor WHERE donor_id = ?";
+        deleteDonorQuery="DELETE FROM donorBBM WHERE donor_id = ?";
         try {
             stmt=connection.prepareStatement(getDeleteDonorQuery());
         } catch (SQLException ex) {
@@ -74,7 +74,7 @@ public class DeleteUser {
             Logger.getLogger(DeleteUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        deleteFromLogin="DELETE FROM login WHERE username = ?";
+        deleteFromLogin="DELETE FROM loginBBM WHERE username = ?";
         
         
         try {

@@ -148,6 +148,11 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
         lName.setText("Name");
 
         tName.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tNameActionPerformed(evt);
+            }
+        });
 
         bSubmit.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bSubmit.setText("Submit");
@@ -435,6 +440,10 @@ public class DonorRegistrationForm extends javax.swing.JFrame {
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCancelActionPerformed
+
+    private void tNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCancel;

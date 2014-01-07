@@ -39,6 +39,7 @@ public class FirstPageForm extends javax.swing.JFrame {
         lQuoteSecondline = new javax.swing.JLabel();
         lBloodBankName = new javax.swing.JLabel();
         bHospitalOrder = new javax.swing.JButton();
+        lAboutUs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blood Bank Management System");
@@ -129,6 +130,22 @@ public class FirstPageForm extends javax.swing.JFrame {
             }
         });
 
+        lAboutUs.setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
+        lAboutUs.setForeground(java.awt.Color.blue);
+        lAboutUs.setText("About Us");
+        lAboutUs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lAboutUs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lAboutUsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lAboutUsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lAboutUsMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,9 +153,15 @@ public class FirstPageForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lTagline)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lBloodBankName)
+                            .addGap(21, 21, 21)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lAboutUs)
                             .addComponent(lQuoteFirstline)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(RegisterDonor)
@@ -150,12 +173,7 @@ public class FirstPageForm extends javax.swing.JFrame {
                             .addComponent(lQuoteSecondline)
                             .addComponent(lQuoteThirdLine)
                             .addComponent(lTips)
-                            .addComponent(lMisconception)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lTagline)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(lBloodBankName)
-                            .addGap(21, 21, 21))))
+                            .addComponent(lMisconception))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,6 +204,8 @@ public class FirstPageForm extends javax.swing.JFrame {
                 .addComponent(lTips)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lMisconception)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lAboutUs)
                 .addContainerGap())
         );
 
@@ -261,6 +281,19 @@ public class FirstPageForm extends javax.swing.JFrame {
         find.setVisible(true);
     }//GEN-LAST:event_bBloodInfoActionPerformed
 
+    private void lAboutUsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lAboutUsMouseClicked
+        About about=new About();
+        about.setVisible(true);
+    }//GEN-LAST:event_lAboutUsMouseClicked
+
+    private void lAboutUsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lAboutUsMouseEntered
+        lAboutUs.setForeground(java.awt.Color.green);
+    }//GEN-LAST:event_lAboutUsMouseEntered
+
+    private void lAboutUsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lAboutUsMouseExited
+        lAboutUs.setForeground(java.awt.Color.blue);
+    }//GEN-LAST:event_lAboutUsMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +341,7 @@ public class FirstPageForm extends javax.swing.JFrame {
     private javax.swing.JButton bHospitalOrder;
     private javax.swing.JButton bLoginHere;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lAboutUs;
     private javax.swing.JLabel lBloodBankName;
     private javax.swing.JLabel lMisconception;
     private javax.swing.JLabel lQuoteFirstline;

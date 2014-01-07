@@ -11,7 +11,9 @@
 
 package forms;
 
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +25,17 @@ public class FindDonorsForm extends javax.swing.JFrame {
     public FindDonorsForm() {
         initComponents();
         setLocation(200, 100);
+        initiateComponent();
+    }
+    
+    
+    public void initiateComponent() {
+        //String sql="select d.name, b.bloodgroup, d.phone_num from donorbbm as d, bloodbbm as b, donatesBBM as do where d.donor_id=do.donor_id and b.code=do.code";
+        //DefaultTableModel dataModel;
+        //dataModel=new DefaultTableModel();
+        //String[] rowData={"1","glug", "k+","1234567890"};
+        //dataModel.addRow(rowData);
+        
     }
 
     /** This method is called from within the constructor to
@@ -35,7 +48,7 @@ public class FindDonorsForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        fDonorname = new javax.swing.JTable();
+        tableDonorname = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
         comboStateSelection = new javax.swing.JComboBox();
@@ -49,8 +62,8 @@ public class FindDonorsForm extends javax.swing.JFrame {
         setTitle("Blood Management-Find Donors");
         setResizable(false);
 
-        fDonorname.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        fDonorname.setModel(new javax.swing.table.DefaultTableModel(
+        tableDonorname.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        tableDonorname.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +73,7 @@ public class FindDonorsForm extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Sl.No.", "Donorname", "Bloodtype", "Place"
+                "Sl.No.", "Donorname", "Blood Group", "Phone No."
             }
         ) {
             Class[] types = new Class [] {
@@ -78,11 +91,11 @@ public class FindDonorsForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        fDonorname.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(fDonorname);
-        fDonorname.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        fDonorname.getColumnModel().getColumn(0).setMinWidth(40);
-        fDonorname.getColumnModel().getColumn(0).setMaxWidth(40);
+        tableDonorname.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(tableDonorname);
+        tableDonorname.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tableDonorname.getColumnModel().getColumn(0).setMinWidth(40);
+        tableDonorname.getColumnModel().getColumn(0).setMaxWidth(40);
 
         jComboBox1.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "A+", "AB+", "A-", "AB-", "O+", "O-", "B+", "B-" }));
@@ -175,14 +188,15 @@ public class FindDonorsForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -212,7 +226,6 @@ public class FindDonorsForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bGetinfo;
     private javax.swing.JComboBox comboStateSelection;
-    private javax.swing.JTable fDonorname;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -220,6 +233,7 @@ public class FindDonorsForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField tCity;
+    private javax.swing.JTable tableDonorname;
     // End of variables declaration//GEN-END:variables
 
 }

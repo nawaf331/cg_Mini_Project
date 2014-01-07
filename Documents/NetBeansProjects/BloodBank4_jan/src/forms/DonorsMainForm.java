@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 public class DonorsMainForm extends javax.swing.JFrame {
     
     private String lastDonation;
+    String[] splitDate;
+    private String nextDonation;
 
     private String getLastDonation() {
         return lastDonation;
@@ -40,12 +42,17 @@ public class DonorsMainForm extends javax.swing.JFrame {
         fillPage.fnGetLastDonationDate();
         setLastDonation(fillPage.getsLastDonationDate());
         lLastBloodDonation.setText("Your Last Blood donation was on : " + getLastDonation());
-        
+        splitDate=lastDonation.split("-");
+        System.out.println(splitDate[0]);
+        System.out.println(splitDate[1]);
+        System.out.println(splitDate[2]);
+        nextDonation=getNextDate();
+        lNextBloodDonation.setText("You may Donate Blood on : "+nextDonation);
         fillPage.fnGetNameOfTheUser();
         lWelcome.setText("Welcome, " + fillPage.getsNameOftheUser());
         
         fillPage.fnGetMgrName();
-        
+        lRegisteredWith.setText("You are registered with : "+ fillPage.getBBName()+ " ( "+ fillPage.getsNameOfTheMgr() + ")");
         
     }
 
@@ -182,7 +189,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         lWarning.setText("lwarning");
 
         lRegisteredWith.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
-        lRegisteredWith.setText("You are registered with :");
+        lRegisteredWith.setText("You are registered with : ");
 
         bRemindMe.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         bRemindMe.setText("Remind me");
@@ -195,7 +202,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
 
         lNextBloodDonation.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lNextBloodDonation.setForeground(java.awt.Color.blue);
-        lNextBloodDonation.setText("You may Donate Blood on :");
+        lNextBloodDonation.setText("You may Donate Blood on : ");
 
         lLastBloodDonation.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
         lLastBloodDonation.setForeground(new java.awt.Color(0, 0, 255));
@@ -302,7 +309,8 @@ public class DonorsMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bDeleteAccountActionPerformed
 
     private void bViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bViewProfileActionPerformed
-        
+        DonorUpdateform updateform=new DonorUpdateform();
+        updateform.setVisible(true);
     }//GEN-LAST:event_bViewProfileActionPerformed
 
     private void bDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDonateBloodActionPerformed
@@ -315,6 +323,10 @@ public class DonorsMainForm extends javax.swing.JFrame {
                     null,
                     possibilities,
                     "ham");
+        System.out.println(s);
+        BusinessLogic.DonateBloodBL donate=new BusinessLogic.DonateBloodBL();
+        donate.setBloodtype(s);
+        donate.incrementBlood();
         
     }//GEN-LAST:event_bDonateBloodActionPerformed
 
@@ -385,4 +397,19 @@ public class DonorsMainForm extends javax.swing.JFrame {
     private javax.swing.JLabel lWarning;
     private javax.swing.JLabel lWelcome;
     // End of variables declaration//GEN-END:variables
+
+    private String getNextDate() {
+        int year;
+        int month;
+        int nextMonth;
+        year=Integer.parseInt(splitDate[0]);
+        month=Integer.parseInt(splitDate[1]);
+        nextMonth=month+3;
+        if(nextMonth>11){
+            year++;
+            nextMonth=nextMonth-12;
+        }
+        nextDonation=Integer.toString(year)+"-"+Integer.toString(nextMonth)+"-"+splitDate[2];
+        return nextDonation;
+    }
 }

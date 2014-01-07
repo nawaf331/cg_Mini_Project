@@ -87,7 +87,7 @@ public class Donor {
 
     public boolean insertDonor() {
         result=0;
-        setInsertDonorSql("INSERT INTO donor VALUES(?,?,?,?,?,?)");
+        setInsertDonorSql("INSERT INTO donorBBM VALUES(?,?,?,?,?,?)");
         try {
             connection=core.DBManager.con;
             stmt=connection.prepareStatement(getInsertDonorSql());
