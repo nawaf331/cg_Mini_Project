@@ -89,7 +89,7 @@ public class DonorsMainForm extends javax.swing.JFrame {
         lLastBloodDonation = new javax.swing.JLabel();
         lWarning = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Blood Bank - Registered User");
         setResizable(false);
 
@@ -219,12 +219,16 @@ public class DonorsMainForm extends javax.swing.JFrame {
             .addGroup(innerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lRegisteredWith)
-                    .addComponent(lLastBloodDonation)
-                    .addComponent(lNextBloodDonation))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(bRemindMe)
-                .addContainerGap())
+                    .addGroup(innerPanelLayout.createSequentialGroup()
+                        .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lRegisteredWith)
+                            .addComponent(lLastBloodDonation))
+                        .addContainerGap(192, Short.MAX_VALUE))
+                    .addGroup(innerPanelLayout.createSequentialGroup()
+                        .addComponent(lNextBloodDonation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bRemindMe)
+                        .addGap(36, 36, 36))))
         );
         innerPanelLayout.setVerticalGroup(
             innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

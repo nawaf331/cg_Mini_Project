@@ -245,6 +245,8 @@ public class HospitalOrderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_bResetActionPerformed
 
     private void bOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOrderActionPerformed
+        BusinessLogic.OrderBloodBL order=new BusinessLogic.OrderBloodBL();
+        order.IncrementBloodQuantity();
         JOptionPane.showConfirmDialog(this, "Your request is accepted. thank you", "Accepted", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bOrderActionPerformed
 
